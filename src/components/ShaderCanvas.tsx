@@ -115,62 +115,58 @@ export default function ShaderCanvas({ activeSlide }: ShaderCanvasProps) {
         float activeSlide = u_active_slide;
         
         // Background baseline and glowing color elements
-        vec3 baseColor = vec3(0.02, 0.02, 0.03);
-        vec3 windGlow = vec3(0.0);
+        vec3 baseColor = vec3(0.97, 0.97, 0.96);
+        vec3 accentColor = vec3(0.85, 0.85, 0.85);
 
         // Dynamically compute visual mood based on the interpolated sliding progression
         if (activeSlide < 0.5) {
-          // Slide 0: Crimson Red & Deep Space Wind
+          // Slide 0: Soft Crimson Rose
           float stage = activeSlide / 0.5;
-          baseColor = mix(vec3(0.03, 0.01, 0.01), vec3(0.04, 0.01, 0.01), stage);
-          windGlow = vec3(0.65, 0.03, 0.03) * fbm(p * 1.8 + u_time * 0.1);
+          baseColor = mix(vec3(0.98, 0.97, 0.96), vec3(0.98, 0.95, 0.94), stage);
+          accentColor = vec3(0.95, 0.72, 0.72);
         } 
         else if (activeSlide < 1.5) {
-          // Slide 1: Professional Tech Dark Gray with Crimson Ribbons
+          // Slide 1: Soft Professional Steel
           float stage = (activeSlide - 0.5);
-          baseColor = mix(vec3(0.03, 0.01, 0.01), vec3(0.02, 0.02, 0.03), stage);
-          windGlow = mix(vec3(0.65, 0.03, 0.03), vec3(0.5, 0.05, 0.15), stage) * fbm(p * 1.5 + u_time * 0.08);
-          // Add discrete lines as visual overlay
-          float grid = step(0.98, fract(p.x * 2.0)) * 0.02 + step(0.98, fract(p.y * 2.0)) * 0.02;
-          windGlow += vec3(grid);
+          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.96, 0.96, 0.97), stage);
+          accentColor = vec3(0.78, 0.82, 0.88);
         } 
         else if (activeSlide < 2.5) {
-          // Slide 2: Tech Cyber Cyan, intelligent flow
+          // Slide 2: Soft Cyber Teal
           float stage = (activeSlide - 1.5);
-          baseColor = mix(vec3(0.02, 0.02, 0.03), vec3(0.01, 0.02, 0.04), stage);
-          windGlow = mix(vec3(0.5, 0.05, 0.15), vec3(0.02, 0.42, 0.55), stage) * fbm(p * 1.6 + u_time * 0.12);
+          baseColor = mix(vec3(0.96, 0.96, 0.97), vec3(0.94, 0.97, 0.98), stage);
+          accentColor = vec3(0.68, 0.88, 0.92);
         } 
         else if (activeSlide < 3.5) {
-          // Slide 3: Domestic Patriot Solid Crimson Red
+          // Slide 3: Soft Patriot Crimson
           float stage = (activeSlide - 2.5);
-          baseColor = mix(vec3(0.01, 0.02, 0.04), vec3(0.04, 0.005, 0.005), stage);
-          windGlow = mix(vec3(0.02, 0.42, 0.55), vec3(0.72, 0.02, 0.02), stage) * fbm(p * 1.9 + u_time * 0.09);
+          baseColor = mix(vec3(0.94, 0.97, 0.98), vec3(0.98, 0.94, 0.94), stage);
+          accentColor = vec3(0.95, 0.70, 0.70);
         } 
         else if (activeSlide < 4.5) {
-          // Slide 4: High Reliability Amber Golden + Crimson
+          // Slide 4: Soft Amber Golden
           float stage = (activeSlide - 3.5);
-          baseColor = mix(vec3(0.04, 0.005, 0.005), vec3(0.03, 0.02, 0.01), stage);
-          vec3 amber = vec3(0.55, 0.38, 0.05);
-          vec3 crimson = vec3(0.5, 0.01, 0.01);
-          windGlow = mix(vec3(0.72, 0.02, 0.02), mix(amber, crimson, p.y * 0.5 + 0.5), stage) * fbm(p * 2.2 + u_time * 0.07);
+          baseColor = mix(vec3(0.98, 0.94, 0.94), vec3(0.98, 0.97, 0.93), stage);
+          accentColor = vec3(0.92, 0.84, 0.65);
         } 
         else {
-          // Slide 5: Cosmic Rose Purple Ecosystem
+          // Slide 5: Soft Lavender Purple
           float stage = min(1.0, (activeSlide - 4.5));
-          baseColor = mix(vec3(0.03, 0.02, 0.01), vec3(0.03, 0.01, 0.02), stage);
-          vec3 amberCrimson = vec3(0.48, 0.1, 0.15);
-          windGlow = mix(amberCrimson, vec3(0.58, 0.05, 0.32), stage) * fbm(p * 1.4 + u_time * 0.06);
+          baseColor = mix(vec3(0.98, 0.97, 0.93), vec3(0.96, 0.95, 0.98), stage);
+          accentColor = vec3(0.85, 0.75, 0.92);
         }
 
-        // Mouse ripple sparks integration
-        windGlow += vec3(0.08, 0.15, 0.25) * mouse_influence * noise(p * 8.0 + u_time * 1.5);
+        // Compute fluid noise density
+        float density = fbm(p * 1.5 + u_time * 0.05);
+        vec3 finalCol = mix(baseColor, accentColor, density * 0.35);
+
+        // Subtle dark mouse influence ripples
+        finalCol = mix(finalCol, vec3(0.85, 0.90, 0.95), mouse_influence * 0.15);
         
-        vec3 finalCol = baseColor + windGlow * 0.65;
-        
-        // Add vignette shadow borders for rich immersion
+        // Add very soft vignette shadow borders to maintain clean crisp look
         vec2 radial = abs(uv - 0.5) * 1.8;
-        float vignette = 1.0 - dot(radial, radial) * 0.3;
-        finalCol *= clamp(vignette, 0.1, 1.0);
+        float vignette = 1.0 - dot(radial, radial) * 0.08;
+        finalCol *= clamp(vignette, 0.8, 1.0);
         
         gl_FragColor = vec4(finalCol, 1.0);
       }
@@ -310,20 +306,20 @@ export default function ShaderCanvas({ activeSlide }: ShaderCanvasProps) {
   if (!webGlSupported) {
     // Beautiful pure CSS animated gradient representation on WebGL failure (safe fallback)
     const backgroundGradients = [
-      'bg-radial from-red-950/20 via-neutral-950 to-neutral-950',
-      'bg-radial from-rose-950/25 via-zinc-950 to-neutral-950',
-      'bg-radial from-cyan-950/30 via-slate-950 to-neutral-950',
-      'bg-radial from-red-900/20 via-stone-950 to-neutral-950',
-      'bg-radial from-amber-950/25 via-zinc-950 to-neutral-950',
-      'bg-radial from-fuchsia-950/20 via-neutral-950 to-neutral-950',
+      'bg-radial from-red-50 via-neutral-50 to-neutral-100',
+      'bg-radial from-rose-50 via-zinc-50 to-zinc-100',
+      'bg-radial from-cyan-50 via-slate-50 to-slate-100',
+      'bg-radial from-red-50 via-stone-50 to-stone-100',
+      'bg-radial from-amber-50 via-zinc-50 to-zinc-100',
+      'bg-radial from-fuchsia-50 via-neutral-50 to-neutral-100',
     ];
 
     return (
       <div 
-        className={`fixed inset-0 z-0 transition-all duration-1000 ease-out ${backgroundGradients[activeSlide] || "bg-neutral-950"}`}
+        className={`fixed inset-0 z-0 transition-all duration-1000 ease-out ${backgroundGradients[activeSlide] || "bg-neutral-50"}`}
         id="css-fallback-bg"
       >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:32px_32px]" />
         <div className="absolute inset-0 bg-radial-gradient-mask" />
       </div>
     );
@@ -333,18 +329,18 @@ export default function ShaderCanvas({ activeSlide }: ShaderCanvasProps) {
     <div className="fixed inset-0 z-0 overflow-hidden select-none pointer-events-none" id="shader-background-wrapper">
       <canvas 
         ref={canvasRef} 
-        className="w-full h-full block opacity-70"
-        style={{ filter: 'contrast(1.1) brightness(0.95)' }}
+        className="w-full h-full block opacity-85"
+        style={{ filter: 'contrast(1.02) brightness(1.0)' }}
         id="webgl-canvas-fluid"
       />
       {/* Dynamic Grid Overlay to reinforce the professional military/intelligence engineering theme */}
       <div 
-        className="absolute inset-0 opacity-[0.03] select-none pointer-events-none transition-all duration-1000"
+        className="absolute inset-0 opacity-[0.80] select-none pointer-events-none transition-all duration-1000"
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 80%),
-            linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)
+            radial-gradient(ellipse at center, rgba(0,0,0,0.01) 0%, transparent 80%),
+            linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px)
           `,
           backgroundSize: '100% 100%, 40px 40px, 40px 40px',
         }}

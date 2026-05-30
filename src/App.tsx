@@ -11,22 +11,21 @@ import Preloader from './components/Preloader';
 import CacheManager from './components/CacheManager';
 import ScenicSlides from './components/ScenicSlides';
 import BrandLogo from './components/BrandLogo';
-import {
-  ShieldCheck,
-  MapPin,
-  ArrowRight,
-  Activity,
-  PhoneCall,
-  Layers,
-  ChevronDown,
-  ChevronUp,
-  Menu,
+import { 
+  ShieldCheck, 
+  MapPin, 
+  ArrowRight, 
+  Activity, 
+  PhoneCall, 
+  Layers, 
+  ChevronDown, 
+  ChevronUp, 
+  Menu, 
   X,
   Sparkles,
   Award,
   Zap
 } from 'lucide-react';
-import logoChineseName from '@/assets/中文名称.png';
 
 export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -154,7 +153,7 @@ export default function App() {
           <ShaderCanvas activeSlide={currentSlide} />
 
           {/* 3. Global Static Header (Matches PDF: Owl emblem / Wuhan / Leming Branding) */}
-          <header className="fixed top-0 inset-x-0 z-30 px-6 py-4 md:px-12 md:py-5 flex items-center justify-between backdrop-blur-xs bg-linear-to-b from-black/50 to-transparent pointer-events-auto" id="main-showroom-header">
+          <header className="fixed top-0 inset-x-0 z-30 px-6 py-4 md:px-12 md:py-5 flex items-center justify-between backdrop-blur-md bg-linear-to-b from-white/80 via-white/40 to-transparent pointer-events-auto border-b border-stone-200/10" id="main-showroom-header">
             {/* Left Column Symbol badge (Owl style insignia) */}
             <div className="flex items-center gap-3">
               <motion.div 
@@ -167,30 +166,33 @@ export default function App() {
                 <BrandLogo className="w-9 h-9" userLogo={userLogo} />
               </motion.div>
               
-              <div className="select-none flex flex-col justify-center">
-                <img src={logoChineseName} alt="迎风聚智" className="h-4 md:h-5 w-auto object-contain" />
-                <div className="hidden sm:flex items-center gap-2 text-[9px] text-neutral-450 font-mono mt-0.5">
+              <div className="select-none">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-base font-extrabold tracking-widest text-neutral-900 font-display">迎风聚智</span>
+                  <span className="text-[10px] text-red-650 font-mono font-bold tracking-tight">LEMING</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-2 text-[9px] text-neutral-600 font-mono">
                   <span>中国 · 武汉</span>
                   <span>|</span>
-                  <span className="text-neutral-500">军民融合 / 国内首创 / 自主可控</span>
+                  <span className="text-neutral-500 font-medium">自主研发 / 国内有数 / 安全可控</span>
                 </div>
               </div>
             </div>
 
             {/* Desktop Navigation Center Menu */}
-            <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-neutral-300 font-display">
+            <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-neutral-800 font-display">
               {SCENES_DATA.map((scene, idx) => (
                 <button
                   key={scene.id}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`relative py-1.5 uppercase transition-colors hover:text-white ${
-                    currentSlide === idx ? 'text-white' : 'text-neutral-450'
+                  className={`relative py-1.5 uppercase transition-colors hover:text-red-600 ${
+                    currentSlide === idx ? 'text-red-600 font-bold' : 'text-neutral-500'
                   }`}
                 >
                   {scene.subtitle.split(' · ')[0]}
                   {currentSlide === idx && (
                     <motion.div 
-                      className="absolute bottom-0 inset-x-0 h-0.5 bg-red-500"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-red-600"
                       layoutId="activeNavIndicator"
                     />
                   )}
@@ -204,7 +206,7 @@ export default function App() {
               
               <button 
                 onClick={() => setCurrentSlide(5)}
-                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-650 hover:bg-neutral-900 border border-red-500/30 text-xs font-bold text-white transition-all shadow-md hover:border-neutral-800"
+                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600 hover:bg-neutral-900 text-xs font-bold text-white transition-all shadow-sm hover:shadow-md"
                 id="header-cta-btn"
               >
                 <span>预约测评</span>
@@ -214,7 +216,7 @@ export default function App() {
               {/* Mobile Slide controller drawer menu */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1 px-2.5 bg-neutral-900 hover:bg-neutral-850 rounded-lg border border-neutral-800 lg:hidden text-neutral-300 hover:text-white transition-all"
+                className="p-1 px-2.5 bg-white hover:bg-stone-50 rounded-lg border border-stone-200 lg:hidden text-neutral-800 transition-all cursor-pointer"
                 id="mobile-drawer-toggle"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -226,7 +228,7 @@ export default function App() {
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div 
-                className="fixed inset-0 z-20 bg-neutral-950/98 pt-20 px-6 flex flex-col justify-start lg:hidden"
+                className="fixed inset-0 z-20 bg-white/98 pt-20 px-6 flex flex-col justify-start lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -241,13 +243,13 @@ export default function App() {
                         setCurrentSlide(idx);
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full text-left py-2.5 border-b border-neutral-900/50 flex justify-between items-center"
+                      className="w-full text-left py-2.5 border-b border-neutral-100 flex justify-between items-center"
                     >
                       <div>
-                        <span className="text-sm font-extrabold text-white block">{scene.title}</span>
-                        <span className="text-xs text-neutral-400 font-mono block">{scene.subtitle}</span>
+                        <span className="text-sm font-extrabold text-neutral-900 block">{scene.title}</span>
+                        <span className="text-xs text-neutral-500 font-mono block">{scene.subtitle}</span>
                       </div>
-                      <span className={`text-xs font-mono font-bold ${currentSlide === idx ? 'text-red-500' : 'text-neutral-600'}`}>
+                      <span className={`text-xs font-mono font-bold ${currentSlide === idx ? 'text-red-650' : 'text-neutral-400'}`}>
                         0{idx + 1}
                       </span>
                     </button>
@@ -259,7 +261,7 @@ export default function App() {
                     setCurrentSlide(5);
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full py-3 rounded-xl bg-red-600 font-bold text-xs text-white text-center mt-6 shadow-lg shadow-red-900/40"
+                  className="w-full py-3 rounded-xl bg-red-600 font-bold text-xs text-white text-center mt-6 shadow-md shadow-red-600/15"
                 >
                   向检验中心申请免费跑分
                 </button>
@@ -269,59 +271,59 @@ export default function App() {
 
           {/* 5. Main Fullscreen Content Viewer (Parallax scroll structure) */}
           <main className="flex-1 w-full relative z-10 flex items-center justify-center">
-            <ScenicSlides activeSlide={currentSlide} />
+            <ScenicSlides activeSlide={currentSlide} userLogo={userLogo} />
           </main>
 
           {/* 6. Static Sticky Footer Controller */}
-          <footer className="fixed bottom-0 inset-x-0 z-35 px-6 py-4 md:px-12 md:py-5 flex items-center justify-between bg-linear-to-t from-black/60 to-transparent pointer-events-none" id="main-showroom-footer">
+          <footer className="fixed bottom-0 inset-x-0 z-35 px-6 py-4 md:px-12 md:py-5 flex items-center justify-between bg-linear-to-t from-white/90 via-white/50 to-transparent pointer-events-none" id="main-showroom-footer">
             {/* Left: Dynamic Active slide coordinates indicators */}
             <div className="flex items-center gap-1.5 font-mono text-[10.5px]">
-              <span className="font-bold text-red-500">0{currentSlide + 1}</span>
-              <span className="text-neutral-600">/</span>
-              <span className="text-neutral-550">06</span>
-              <span className="hidden sm:inline text-neutral-600 ml-4 font-normal">
+              <span className="font-bold text-red-600">0{currentSlide + 1}</span>
+              <span className="text-neutral-450">/</span>
+              <span className="text-neutral-400">06</span>
+              <span className="hidden sm:inline text-neutral-500 ml-4 font-normal">
                 {SCENES_DATA[currentSlide].englishTitle}
               </span>
             </div>
 
             {/* Center Swipe direction guidance indicator */}
             <div className="hidden md:flex items-center gap-1.5 text-[10.5px] font-mono text-neutral-500 tracking-wider">
-              <span className="animate-bounce">↓</span>
+              <span className="animate-bounce text-red-650 font-bold">↓</span>
               <span>滚动鼠标或滑动屏幕以深入章节</span>
             </div>
 
             {/* Right: Dot Navigation Indexers and Scroll Up/Down controls */}
             <div className="flex items-center gap-4 pointer-events-auto">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 cursor-pointer">
                 {SCENES_DATA.map((scene, idx) => (
                   <button
                     key={scene.id}
                     onClick={() => setCurrentSlide(idx)}
-                    className="p-1 px-1.5 focus:outline-hidden"
+                    className="p-1 px-1.5 focus:outline-hidden cursor-pointer"
                     title={scene.title}
                   >
                     <div className={`transition-all duration-300 rounded-full h-1.5 ${
-                      currentSlide === idx ? 'w-5 bg-red-500' : 'w-1.5 bg-neutral-700 hover:bg-neutral-500'
+                      currentSlide === idx ? 'w-5 bg-red-600' : 'w-1.5 bg-neutral-300 hover:bg-neutral-500'
                     }`} />
                   </button>
                 ))}
               </div>
 
               {/* Slider quick arrow controls */}
-              <div className="flex items-center gap-1 bg-neutral-900/80 border border-neutral-805 rounded-full p-0.5 shadow-lg">
+              <div className="flex items-center gap-1 bg-white border border-stone-200 rounded-full p-0.5 shadow-sm">
                 <button 
                   onClick={prevSlide}
                   disabled={currentSlide === 0}
-                  className="p-1.5 rounded-full hover:bg-zinc-800 text-neutral-450 hover:text-white transition-all disabled:opacity-30 disabled:pointer-events-none"
+                  className="p-1.5 rounded-full hover:bg-stone-100 text-neutral-650 hover:text-red-650 transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
                   title="上一章"
                 >
                   <ChevronUp className="w-4 h-4" />
                 </button>
-                <div className="h-4 w-[1px] bg-neutral-800" />
+                <div className="h-4 w-[1px] bg-stone-200" />
                 <button 
                   onClick={nextSlide}
                   disabled={currentSlide === SCENES_DATA.length - 1}
-                  className="p-1.5 rounded-full hover:bg-zinc-800 text-neutral-450 hover:text-white transition-all disabled:opacity-30 disabled:pointer-events-none animate-pulse"
+                  className="p-1.5 rounded-full hover:bg-stone-100 text-neutral-650 hover:text-red-650 transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer animate-pulse"
                   title="下一章"
                 >
                   <ChevronDown className="w-4 h-4" />

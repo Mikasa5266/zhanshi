@@ -7,8 +7,6 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldAlert, Cpu, HardDrive, Wifi, Sparkles, CheckCircle } from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import logoFull from '@/assets/1024_1024.png';
-import logoEnglishLetters from '@/assets/英文字母.png';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -78,12 +76,12 @@ export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
                id="brand-header-loader"
              >
                <div className="w-16 h-16 relative group">
-                 <img src={logoFull} alt="迎风聚智" className="w-16 h-16 rounded-xl object-contain" />
+                 <BrandLogo className="w-16 h-16" userLogo={userLogo} />
                  {/* Visual pulse ring */}
                  <div className="absolute inset-x-0 h-full w-full rounded-2xl border border-red-500 animate-ping opacity-25 scale-110" />
                </div>
-               <img src={logoEnglishLetters} alt="LEMING TECH" className="h-5 w-auto object-contain mt-4" />
-               <p className="text-xs text-neutral-400 font-mono tracking-wider mt-1">迎风聚智 · 国内首创自主可控</p>
+               <h2 className="text-xl font-bold tracking-widest text-red-500 font-display mt-4">LEMING TECH</h2>
+               <p className="text-xs text-neutral-400 font-mono tracking-wider">迎风聚智 · 国内首创自主可控</p>
              </motion.div>
 
             {/* Giant Glowing Percentage Counter */}
