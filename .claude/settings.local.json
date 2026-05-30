@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 30)",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\Project\\\\迎风聚智数字展厅\" -Recurse -Depth 3 | Where-Object { $_.PSIsContainer } | Select-Object -ExpandProperty FullName | Sort-Object)"
+    ]
+  }
+}

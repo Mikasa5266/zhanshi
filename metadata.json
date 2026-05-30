@@ -1,0 +1,6 @@
+{
+  "name": "迎风聚智数字展厅",
+  "description": "武汉迎风聚智科技有限公司全屏沉浸式交互数字展厅，搭载GLSL液体着色器、触摸滑动优化与视频预加载策略，极致呈现军工级软件检验检测自主可控核心成果。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
