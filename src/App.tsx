@@ -139,7 +139,7 @@ export default function App() {
   return (
     <div className="w-full h-full relative overflow-hidden select-none" id="app-root-container">
       {/* 1. Global Asset Preload Layer */}
-      <Preloader onComplete={() => setIsLoaded(true)} userLogo={userLogo} />
+      <Preloader onComplete={() => setIsLoaded(true)} />
 
       {isLoaded && (
         <div 

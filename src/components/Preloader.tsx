@@ -6,14 +6,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldAlert, Cpu, HardDrive, Wifi, Sparkles, CheckCircle } from 'lucide-react';
-import BrandLogo from './BrandLogo';
+import logoChineseGraphic from '../../assets/中文+图形.png';
+import logoEnglishLetters from '../../assets/英文字母.png';
 
 interface PreloaderProps {
   onComplete: () => void;
-  userLogo?: string | null;
 }
 
-export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
+export default function Preloader({ onComplete }: PreloaderProps) {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState('初始化展示引擎...');
   const [isDone, setIsDone] = useState(false);
@@ -56,37 +56,35 @@ export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
   return (
     <AnimatePresence>
       {!isDone && (
-        <motion.div 
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050505] text-white select-none px-6"
+        <motion.div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-neutral-900 select-none px-6"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           id="preloader-overlay"
         >
           {/* Futuristic Tech Lines in background */}
-          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
           
           <div className="w-full max-w-lg z-10 flex flex-col items-center">
             {/* Leming Brand Owl Icon and Text */}
-            <motion.div 
-               className="mb-8 flex flex-col items-center gap-1"
+            <motion.div
+               className="mb-8 flex flex-col items-center gap-3"
                initial={{ y: 20, opacity: 0 }}
                animate={{ y: 0, opacity: 1 }}
                transition={{ delay: 0.1, duration: 0.6 }}
                id="brand-header-loader"
              >
-               <div className="w-16 h-16 relative group">
-                 <BrandLogo className="w-16 h-16" userLogo={userLogo} />
-                 {/* Visual pulse ring */}
-                 <div className="absolute inset-x-0 h-full w-full rounded-2xl border border-red-500 animate-ping opacity-25 scale-110" />
+               <div className="w-20 h-20 relative group">
+                 <img src={logoChineseGraphic} alt="迎风聚智" className="w-20 h-20 object-contain" />
                </div>
-               <h2 className="text-xl font-bold tracking-widest text-red-500 font-display mt-4">LEMING TECH</h2>
-               <p className="text-xs text-neutral-400 font-mono tracking-wider">迎风聚智 · 国内首创自主可控</p>
+               <img src={logoEnglishLetters} alt="LEMING TECH" className="h-5 object-contain mt-2" />
+               <p className="text-xs text-neutral-500 font-mono tracking-wider">迎风聚智 · 国内首创自主可控</p>
              </motion.div>
 
             {/* Giant Glowing Percentage Counter */}
             <motion.div 
-              className="text-7xl font-light tracking-tighter text-white font-mono flex items-baseline gap-1"
+              className="text-7xl font-light tracking-tighter text-neutral-800 font-mono flex items-baseline gap-1"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -97,7 +95,7 @@ export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
             </motion.div>
 
             {/* Progress Bar Container */}
-            <div className="w-full h-1 bg-neutral-900 rounded-full mt-8 mb-4 overflow-hidden relative">
+            <div className="w-full h-1 bg-neutral-200 rounded-full mt-8 mb-4 overflow-hidden relative">
               {/* Dynamic Progress indicator */}
               <motion.div 
                 className="h-full bg-linear-to-r from-red-600 via-rose-500 to-red-600 rounded-full"
@@ -111,7 +109,7 @@ export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
               <AnimatePresence mode="wait">
                 <motion.span 
                   key={currentStep}
-                  className="text-xs text-neutral-400 font-mono tracking-wider text-center block"
+                  className="text-xs text-neutral-500 font-mono tracking-wider text-center block"
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
@@ -123,32 +121,32 @@ export default function Preloader({ onComplete, userLogo }: PreloaderProps) {
             </div>
 
             {/* Cache Strategy Indicators for SECONDS FIRST SECONDS SECURE (首屏秒开) */}
-            <div className="mt-16 grid grid-cols-3 gap-4 w-full bg-neutral-950/80 border border-neutral-900 rounded-xl p-4 md:p-5">
+            <div className="mt-16 grid grid-cols-3 gap-4 w-full bg-neutral-50 border border-neutral-200 rounded-xl p-4 md:p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="p-2 rounded-lg bg-red-950/30 border border-red-900/30 text-red-500 mb-2">
+                <div className="p-2 rounded-lg bg-red-50 border border-red-200 text-red-600 mb-2">
                   <Cpu className="w-4.5 h-4.5 animate-pulse" />
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 font-bold">GLSL PRECOMPILE</span>
-                <span className="text-[9px] text-neutral-600 mt-1">2.4ms 编译就绪</span>
+                <span className="text-[10px] font-mono text-neutral-600 font-bold">GLSL PRECOMPILE</span>
+                <span className="text-[9px] text-neutral-400 mt-1">2.4ms 编译就绪</span>
               </div>
-              <div className="flex flex-col items-center text-center border-x border-neutral-900 px-3">
-                <div className="p-2 rounded-lg bg-red-950/30 border border-red-900/30 text-red-500 mb-2">
+              <div className="flex flex-col items-center text-center border-x border-neutral-200 px-3">
+                <div className="p-2 rounded-lg bg-red-50 border border-red-200 text-red-600 mb-2">
                   <HardDrive className="w-4.5 h-4.5" />
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 font-bold">SW MEDIA CACHE</span>
-                <span className="text-[9px] text-neutral-600 mt-1">98% 压缩比首屏</span>
+                <span className="text-[10px] font-mono text-neutral-600 font-bold">SW MEDIA CACHE</span>
+                <span className="text-[9px] text-neutral-400 mt-1">98% 压缩比首屏</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="p-2 rounded-lg bg-red-950/30 border border-red-900/30 text-red-500 mb-2">
+                <div className="p-2 rounded-lg bg-red-50 border border-red-200 text-red-600 mb-2">
                   <Wifi className="w-4.5 h-4.5" />
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 font-bold">LAZY STRATEGY</span>
-                <span className="text-[9px] text-neutral-600 mt-1">响应式动态缓冲</span>
+                <span className="text-[10px] font-mono text-neutral-600 font-bold">LAZY STRATEGY</span>
+                <span className="text-[9px] text-neutral-400 mt-1">响应式动态缓冲</span>
               </div>
             </div>
 
             {/* Subliminal Message (物勒工名) */}
-            <p className="mt-8 text-[11px] text-neutral-600 font-mono italic text-center">
+            <p className="mt-8 text-[11px] text-neutral-400 font-mono italic text-center">
               "物勒工名，以考其诚" — 检验检测即是对质量誓死笃行的最高自律。
             </p>
           </div>

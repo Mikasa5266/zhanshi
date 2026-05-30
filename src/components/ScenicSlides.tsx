@@ -605,19 +605,19 @@ export default function ScenicSlides({ activeSlide, userLogo }: ScenicSlidesProp
                 </div>
 
                 {/* WebRunner System Overlay (Right Representation, reveals dynamically) */}
-                <div 
-                  className="absolute inset-y-0 left-0 bg-linear-to-r from-red-50/95 to-red-100/95 border-r border-red-550 p-6 flex flex-col justify-between overflow-hidden shadow-2xl transition-shadow"
-                  style={{ width: `${revealRatio}%` }}
+                <div
+                  className="absolute inset-0 bg-linear-to-r from-red-50/95 to-red-100/95 p-6 flex flex-col justify-between shadow-2xl"
+                  style={{ clipPath: `inset(0 ${100 - revealRatio}% 0 0)` }}
                 >
-                  <div className="min-w-[420px]">
+                  <div>
                     <span className="text-red-700 font-mono text-[10px] tracking-wider block font-bold">DOMESTIC POWERED NATIVE</span>
                     <h4 className="text-xl font-extrabold text-neutral-900 mt-1 font-display">Leming WebRunner V6.0</h4>
                     <p className="text-xs text-stone-605 max-w-sm mt-2">
                       100% 国产自研检验引擎。原生高度契合多级军事国防检验环境，通过国家软件评测、中国工信部等一等资质认证。
                     </p>
                   </div>
-                  
-                  <div className="p-3 border border-red-200 rounded bg-white text-red-700 font-mono text-[9px] max-w-sm min-w-[320px] shadow-2xs">
+
+                  <div className="p-3 border border-red-200 rounded bg-white text-red-700 font-mono text-[9px] max-w-sm shadow-2xs">
                     {`[WEBRUNNER_AGENT_LIVE] GJB compliance: Verified.\nDatabase: OceanBase / Dameng fully loaded. Scale: 12GBps.`}
                   </div>
                 </div>
