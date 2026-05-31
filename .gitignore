@@ -6,3 +6,4 @@ coverage/
 *.log
 .env*
 !.env.example
+public/迎风2026.pdf
