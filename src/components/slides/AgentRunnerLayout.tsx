@@ -3,43 +3,103 @@ import { motion } from 'motion/react';
 import { PlayCircle, Bot } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
 
+const AGENT_NODES = [
+  { id: 'design', label: '测试设计', top: '8%', left: '25%' },
+  { id: 'script', label: '脚本生成', top: '8%', left: '62%' },
+  { id: 'execute', label: '执行调度', top: '62%', left: '25%' },
+  { id: 'report', label: '文档输出', top: '62%', left: '62%' },
+];
+
 export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 w-full h-full">
-      {/* Top: AI badge + title inline */}
-      <motion.div
-        className="flex items-center gap-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+    <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
+      <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-4">
+        {/* Left: Agent Constellation */}
         <motion.div
-          className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center"
-          style={{ backgroundColor: `${exhibit.accentColor}15`, border: `1.5px solid ${exhibit.accentColor}40` }}
-          animate={{ boxShadow: [`0 0 0px ${exhibit.accentColor}00`, `0 0 20px ${exhibit.accentColor}30`, `0 0 0px ${exhibit.accentColor}00`] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="relative w-[340px] shrink-0 flex flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          <Bot className="w-4 h-4 md:w-5 md:h-5" style={{ color: exhibit.accentColor }} />
-        </motion.div>
-        <div>
-          <h2 className="text-lg md:text-2xl font-extrabold text-neutral-900 tracking-tight font-display">
-            {exhibit.name}
-          </h2>
-          <span className="text-[9px] md:text-[10px] font-mono text-stone-400 tracking-widest">
-            {exhibit.englishTag}
-          </span>
-        </div>
-      </motion.div>
+          {/* Title */}
+          <div className="flex items-center gap-2 mb-2">
+            <motion.div
+              className="relative w-9 h-9 rounded-lg flex items-center justify-center"
+              style={{ backgroundColor: `${exhibit.accentColor}12` }}
+            >
+              <Bot className="w-5 h-5" style={{ color: exhibit.accentColor }} />
+            </motion.div>
+            <div>
+              <h2 className="text-lg font-black text-neutral-900 tracking-tight">{exhibit.name}</h2>
+              <span className="text-[9px] font-mono text-stone-400 tracking-[0.12em]">多智能体协同 · 端到端自动化</span>
+            </div>
+          </div>
 
-      {/* Center: Video with orbital keyword pills floating around it */}
-      <div className="relative w-full max-w-4xl">
-        {/* Video */}
+          {/* Constellation area */}
+          <div className="relative flex-1">
+            {/* Dashed orbital ring */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full border border-dashed"
+              style={{ borderColor: `${exhibit.accentColor}20` }}
+            />
+
+            {/* Central brain node */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center z-10"
+              style={{ backgroundColor: `${exhibit.accentColor}12`, border: `2px solid ${exhibit.accentColor}35` }}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
+            >
+              <div className="text-center">
+                <Bot className="w-5 h-5 mx-auto" style={{ color: exhibit.accentColor }} />
+                <span className="text-[7px] font-bold block mt-0.5" style={{ color: exhibit.accentColor }}>协调中心</span>
+              </div>
+              {/* Pulse ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{ border: `1px solid ${exhibit.accentColor}40` }}
+                animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.div>
+
+            {/* Agent nodes at fixed positions */}
+            {AGENT_NODES.map((node, i) => {
+              const kw = exhibit.keywords[i];
+              const IconComponent = kw ? ICON_MAP[kw.icon] : null;
+              return (
+                <motion.div
+                  key={node.id}
+                  className="absolute flex flex-col items-center z-10"
+                  style={{ top: node.top, left: node.left }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + i * 0.15, duration: 0.4, type: 'spring' }}
+                >
+                  <motion.div
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-white border-2 shadow-md"
+                    style={{ borderColor: `${exhibit.accentColor}40` }}
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.7 }}
+                  >
+                    {IconComponent && <IconComponent className="w-5 h-5" style={{ color: exhibit.accentColor }} />}
+                  </motion.div>
+                  <span className="text-[9px] font-bold text-neutral-700 mt-1.5 whitespace-nowrap">{node.label}</span>
+                  {kw && <span className="text-[8px] text-stone-400">{kw.sublabel}</span>}
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Right: Video */}
         <motion.div
-          className="aspect-video rounded-2xl overflow-hidden shadow-xl bg-stone-900/95 flex items-center justify-center"
-          style={{ border: `1.5px solid ${exhibit.accentColor}40` }}
+          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center border"
+          style={{ borderColor: `${exhibit.accentColor}20` }}
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           {exhibit.videoUrl ? (
             <video
@@ -49,69 +109,55 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
               onEnded={onVideoEnd}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center gap-3 text-stone-400">
-              <PlayCircle className="w-12 h-12 md:w-16 md:h-16 opacity-40" />
-              <span className="text-xs md:text-sm font-mono opacity-60">视频待接入</span>
+            <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
+              <PlayCircle className="w-16 h-16 opacity-20" />
+              <span className="text-xs font-mono opacity-50">视频待接入</span>
             </div>
           )}
-        </motion.div>
 
-        {/* Floating keyword pills - positioned around the video */}
-        <motion.div
-          className="absolute -top-3 left-4 md:left-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
-        >
-          <KeywordPill kw={exhibit.keywords[0]} color={exhibit.accentColor} />
-        </motion.div>
-        <motion.div
-          className="absolute -top-3 right-4 md:right-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-        >
-          <KeywordPill kw={exhibit.keywords[1]} color={exhibit.accentColor} />
-        </motion.div>
-        <motion.div
-          className="absolute -bottom-3 left-4 md:left-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.4 }}
-        >
-          <KeywordPill kw={exhibit.keywords[2]} color={exhibit.accentColor} />
-        </motion.div>
-        <motion.div
-          className="absolute -bottom-3 right-4 md:right-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.4 }}
-        >
-          <KeywordPill kw={exhibit.keywords[3]} color={exhibit.accentColor} />
+          {/* Architecture layers overlay */}
+          <motion.div
+            className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+          >
+            <div className="text-[8px] font-mono text-stone-400 mb-1">PLATFORM STACK</div>
+            <div className="flex flex-col gap-0.5">
+              {['统一门户与协同层', '核心能力服务层', '工具与智能体适配层', '国产基础资源层'].map((layer, i) => (
+                <div
+                  key={i}
+                  className="text-[8px] font-mono px-1.5 py-0.5 rounded text-white/80"
+                  style={{ backgroundColor: `${exhibit.accentColor}${30 + i * 12}` }}
+                >
+                  {layer}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bottom: GJB compliance badge */}
+          <motion.div
+            className="absolute bottom-3 left-3 right-3 flex items-center justify-between"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1.5">
+              <span className="text-[9px] font-mono text-stone-300">GJB438C 合规文档自动生成</span>
+            </div>
+            <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1.5 flex items-center gap-1.5">
+              <motion.div
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: exhibit.accentColor }}
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+              <span className="text-[9px] font-mono text-stone-300">4 Agents Active</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
-
-      <motion.p
-        className="text-[10px] md:text-xs text-stone-500 mt-1"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-      >
-        {exhibit.subtitle}
-      </motion.p>
-    </div>
-  );
-}
-
-function KeywordPill({ kw, color }: { kw: { icon: string; label: string; sublabel: string }; color: string }) {
-  const IconComponent = ICON_MAP[kw.icon];
-  return (
-    <div className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md border border-stone-200/90 rounded-full px-2.5 py-1 shadow-md">
-      <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-        style={{ backgroundColor: `${color}15`, color }}>
-        {IconComponent && <IconComponent className="w-2.5 h-2.5" />}
-      </div>
-      <span className="text-[10px] font-semibold text-neutral-800">{kw.label}</span>
     </div>
   );
 }

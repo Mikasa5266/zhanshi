@@ -1,93 +1,136 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Trophy, Crown } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
+
+const DB_RANKINGS = [
+  { rank: 1, name: '达梦 DM8', score: 12847, delta: '+3.2%' },
+  { rank: 2, name: 'OceanBase', score: 11203, delta: '+1.8%' },
+  { rank: 3, name: 'GaussDB', score: 9631, delta: '+2.1%' },
+  { rank: 4, name: 'TiDB', score: 8920, delta: '+0.9%' },
+];
 
 export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 w-full h-full">
-      <motion.div
-        className="text-center"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-lg md:text-2xl font-extrabold text-neutral-900 tracking-tight font-display">
-          {exhibit.name}
-        </h2>
-        <span className="text-[9px] md:text-[10px] font-mono text-stone-400 tracking-widest">
-          {exhibit.englishTag}
-        </span>
-      </motion.div>
+    <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
+      {/* Racing stripe background */}
+      <div className="absolute inset-0 opacity-[0.015]">
+        <div className="absolute top-0 left-[20%] w-px h-full" style={{ backgroundColor: exhibit.accentColor }} />
+        <div className="absolute top-0 left-[40%] w-px h-full" style={{ backgroundColor: exhibit.accentColor }} />
+        <div className="absolute top-0 left-[60%] w-px h-full" style={{ backgroundColor: exhibit.accentColor }} />
+        <div className="absolute top-0 left-[80%] w-px h-full" style={{ backgroundColor: exhibit.accentColor }} />
+      </div>
 
-      {/* Main content: gauge left + video right */}
-      <div className="flex items-center gap-4 md:gap-6 w-full max-w-5xl">
-        {/* Left: Gauge + keywords */}
+      <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-4">
+        {/* Left: Live Leaderboard */}
         <motion.div
-          className="flex flex-col items-center gap-3 shrink-0"
-          initial={{ opacity: 0, x: -30 }}
+          className="flex flex-col w-[320px] shrink-0"
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* TPC Gauge */}
-          <motion.div className="relative w-28 h-28 md:w-36 md:h-36">
-            <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="42" fill="none" stroke={`${exhibit.accentColor}15`} strokeWidth="6" />
-              <motion.circle
-                cx="50" cy="50" r="42"
-                fill="none"
-                stroke={exhibit.accentColor}
-                strokeWidth="6"
-                strokeDasharray="264"
-                strokeLinecap="round"
-                initial={{ strokeDashoffset: 264 }}
-                animate={{ strokeDashoffset: 66 }}
-                transition={{ delay: 0.5, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <motion.span
-                className="text-2xl md:text-3xl font-black font-mono"
-                style={{ color: exhibit.accentColor }}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.4 }}
+          {/* Title with trophy */}
+          <div className="flex items-center gap-2 mb-3">
+            <motion.div
+              className="w-9 h-9 rounded-lg flex items-center justify-center"
+              style={{ backgroundColor: `${exhibit.accentColor}15` }}
+              animate={{ rotate: [0, -5, 5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+            >
+              <Trophy className="w-5 h-5" style={{ color: exhibit.accentColor }} />
+            </motion.div>
+            <div>
+              <h2 className="text-lg font-black text-neutral-900 tracking-tight leading-none">
+                {exhibit.name}
+              </h2>
+              <span className="text-[9px] font-mono text-stone-400 tracking-[0.15em]">
+                国内唯一 · 国家标准制定者
+              </span>
+            </div>
+          </div>
+
+          {/* Live ranking table */}
+          <motion.div
+            className="flex-1 bg-stone-900 rounded-2xl overflow-hidden border border-stone-800 flex flex-col"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            {/* Table header */}
+            <div className="flex items-center justify-between px-4 py-2 border-b border-stone-800">
+              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-wider">TPC-E Live Rankings</span>
+              <motion.div
+                className="flex items-center gap-1"
+                animate={{ opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
               >
-                75%
-              </motion.span>
-              <span className="text-[8px] md:text-[9px] text-stone-400 font-mono">TPC-E Score</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                <span className="text-[9px] font-mono text-red-400">LIVE</span>
+              </motion.div>
+            </div>
+
+            {/* Rankings */}
+            <div className="flex-1 flex flex-col justify-center px-3 py-2 gap-1.5">
+              {DB_RANKINGS.map((db, i) => (
+                <motion.div
+                  key={i}
+                  className="flex items-center gap-2 rounded-lg px-2.5 py-2"
+                  style={{ backgroundColor: i === 0 ? `${exhibit.accentColor}12` : 'transparent' }}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + i * 0.12, duration: 0.4 }}
+                >
+                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-black ${i === 0 ? 'text-amber-400' : i === 1 ? 'text-stone-300' : i === 2 ? 'text-amber-600' : 'text-stone-500'}`}>
+                    {i === 0 ? <Crown className="w-3.5 h-3.5" /> : `#${db.rank}`}
+                  </div>
+                  <span className="text-[11px] font-semibold text-stone-200 flex-1">{db.name}</span>
+                  <span className="text-xs font-mono font-bold" style={{ color: exhibit.accentColor }}>{db.score.toLocaleString()}</span>
+                  <span className="text-[9px] font-mono text-emerald-400">{db.delta}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom bar */}
+            <div className="px-4 py-2 border-t border-stone-800 flex items-center justify-between">
+              <span className="text-[9px] font-mono text-stone-600">Powered by 迎风聚智 TPC Engine</span>
+              <span className="text-[9px] font-mono text-stone-600">v5.0</span>
             </div>
           </motion.div>
 
-          {/* Stacked keyword pills */}
-          <div className="flex flex-col gap-1.5 w-full">
+          {/* Capability pills below leaderboard */}
+          <motion.div
+            className="flex flex-wrap gap-1.5 mt-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
             {exhibit.keywords.map((kw, i) => {
               const IconComponent = ICON_MAP[kw.icon];
               return (
                 <motion.div
                   key={i}
-                  className="flex items-center gap-2 bg-white/80 backdrop-blur-md border border-stone-200/90 rounded-lg px-2.5 py-1.5 shadow-xs"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
+                  className="flex items-center gap-1.5 bg-white/80 border border-stone-200/80 rounded-full px-2.5 py-1"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.1 + i * 0.08 }}
                 >
-                  <div className="w-5 h-5 rounded flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${exhibit.accentColor}15`, color: exhibit.accentColor }}>
-                    {IconComponent && <IconComponent className="w-3 h-3" />}
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: `${exhibit.accentColor}12`, color: exhibit.accentColor }}>
+                    {IconComponent && <IconComponent className="w-2.5 h-2.5" />}
                   </div>
-                  <span className="text-[10px] font-bold text-neutral-900">{kw.label}</span>
+                  <span className="text-[9px] font-bold text-neutral-800">{kw.label}</span>
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right: Video */}
+        {/* Right: Video as the "race footage" */}
         <motion.div
-          className="relative flex-1 aspect-video rounded-2xl overflow-hidden border border-cyan-200/60 shadow-xl bg-stone-900/95 flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.92 }}
+          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center border border-stone-800"
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           {exhibit.videoUrl ? (
             <video
@@ -97,11 +140,47 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
               onEnded={onVideoEnd}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center gap-3 text-stone-400">
-              <PlayCircle className="w-12 h-12 md:w-16 md:h-16 opacity-40" />
-              <span className="text-xs md:text-sm font-mono opacity-60">视频待接入</span>
+            <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
+              <PlayCircle className="w-16 h-16 opacity-20" />
+              <span className="text-xs font-mono opacity-50">视频待接入</span>
             </div>
           )}
+
+          {/* Overlay: animated score counter */}
+          <motion.div
+            className="absolute top-4 right-4 bg-black/70 backdrop-blur-md rounded-xl px-4 py-3 border border-stone-700"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+          >
+            <div className="text-[9px] font-mono text-stone-400 mb-0.5">CURRENT SCORE</div>
+            <motion.div
+              className="text-2xl font-black font-mono"
+              style={{ color: exhibit.accentColor }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+            >
+              12,847
+            </motion.div>
+            <div className="text-[8px] font-mono text-emerald-400 mt-0.5">TPC-E tpmE</div>
+          </motion.div>
+
+          {/* Bottom: standard badge */}
+          <motion.div
+            className="absolute bottom-4 left-4 right-4 flex items-center justify-between"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+              <span className="text-[9px] font-mono text-stone-300">《数据库基准测试通用技术规范》制定者</span>
+            </div>
+            <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5 flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="text-[9px] font-mono text-stone-300">总装校准通过</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>

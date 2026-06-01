@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SCENES_DATA, EXHIBIT_LIST } from './data';
 import ShaderCanvas from './components/ShaderCanvas';
 import Preloader from './components/Preloader';
-import CacheManager from './components/CacheManager';
 import ScenicSlides from './components/ScenicSlides';
 import BrandLogo from './components/BrandLogo';
 import {
@@ -210,7 +209,6 @@ export default function App() {
             </nav>
 
             <div className="flex items-center gap-3 pointer-events-auto">
-              <CacheManager userLogo={userLogo} onLogoChange={handleLogoChange} />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-1 px-2.5 bg-white hover:bg-stone-50 rounded-lg border border-stone-200 lg:hidden text-neutral-800 transition-all cursor-pointer"
