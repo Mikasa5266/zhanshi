@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 export interface SlideData {
   id: number;
   title: string;
@@ -14,32 +9,29 @@ export interface SlideData {
   themeColor: string;
 }
 
-export interface ProductItem {
+export interface ExhibitKeyword {
+  icon: string;
+  label: string;
+  sublabel: string;
+  statValue?: string;
+}
+
+export interface CoreCapability {
+  icon: string;
+  label: string;
+}
+
+export interface ExhibitItem {
   id: string;
   name: string;
-  type: string;
-  specs: string;
-  desc: string;
-  toolName: string;
-  metrics: {
-    accuracy: number;
-    speedUp: number;
-    reliability: number;
-  };
-}
-
-export interface PartnerItem {
-  name: string;
-  logo: string;
-  type: 'military' | 'testing' | 'enterprise' | 'government';
-  details: string;
-}
-
-export interface ProjectItem {
-  title: string;
-  category: string;
-  client: string;
-  status: string;
+  subtitle: string;
+  englishTag: string;
+  accentColor: string;
+  themeColor: string;
+  keywords: ExhibitKeyword[];
+  videoUrl?: string;
+  coreCapabilities?: CoreCapability[];
+  certifications?: string[];
 }
 
 export interface CacheLog {
