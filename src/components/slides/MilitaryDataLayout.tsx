@@ -6,33 +6,44 @@ import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
 export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 w-full h-full">
+      {/* Header: left-aligned with security badge */}
       <motion.div
-        className="text-left w-full max-w-5xl"
+        className="flex items-center gap-3 w-full max-w-5xl"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="text-lg md:text-2xl font-extrabold text-neutral-900 tracking-tight font-display">
-          {exhibit.name}
-        </h2>
-        <span className="text-[9px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
+        <motion.div
+          className="w-2 h-8 rounded-full"
+          style={{ backgroundColor: exhibit.accentColor }}
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+        />
+        <div>
+          <h2 className="text-lg md:text-2xl font-extrabold text-neutral-900 tracking-tight font-display">
+            {exhibit.name}
+          </h2>
+          <span className="text-[9px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
+        </div>
       </motion.div>
 
-      {/* Video with security border */}
+      {/* 2x2 Grid: video takes top-left, keywords fill the rest */}
       <motion.div
-        className="relative w-full max-w-5xl"
+        className="grid grid-cols-2 grid-rows-2 gap-2 md:gap-3 w-full max-w-5xl"
+        style={{ aspectRatio: '16/9' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.4 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
       >
+        {/* Video cell - spans top-left, larger */}
         <motion.div
-          className="absolute inset-0 rounded-2xl border-2"
-          style={{ borderColor: `${exhibit.accentColor}50` }}
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          className="row-span-2 rounded-xl overflow-hidden bg-stone-900/95 flex items-center justify-center border"
+          style={{ borderColor: `${exhibit.accentColor}40` }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        />
-        <div className="m-1.5 aspect-video rounded-xl overflow-hidden bg-stone-900/95 flex items-center justify-center">
+        >
           {exhibit.videoUrl ? (
             <video
               src={exhibit.videoUrl}
@@ -42,41 +53,38 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
             />
           ) : (
             <div className="flex flex-col items-center justify-center gap-3 text-stone-400">
-              <PlayCircle className="w-12 h-12 md:w-16 md:h-16 opacity-40" />
-              <span className="text-xs md:text-sm font-mono opacity-60">视频待接入</span>
+              <PlayCircle className="w-10 h-10 md:w-14 md:h-14 opacity-40" />
+              <span className="text-[10px] md:text-xs font-mono opacity-60">视频待接入</span>
             </div>
           )}
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Bottom keyword grid */}
-      <motion.div
-        className="grid grid-cols-4 gap-2 w-full max-w-5xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {exhibit.keywords.map((kw, i) => {
-          const IconComponent = ICON_MAP[kw.icon];
-          return (
-            <motion.div
-              key={i}
-              className="bg-white/85 backdrop-blur-md border border-stone-200/90 rounded-lg p-2.5 flex items-center gap-2 shadow-xs"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + i * 0.1, duration: 0.4 }}
-            >
-              <div className="w-7 h-7 rounded-md flex items-center justify-center shrink-0"
-                style={{ backgroundColor: `${exhibit.accentColor}15`, color: exhibit.accentColor }}>
-                {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
-              </div>
-              <div className="min-w-0">
-                <span className="text-[10px] font-bold text-neutral-900 block truncate">{kw.label}</span>
-                <span className="text-[8px] text-stone-500 block truncate">{kw.sublabel}</span>
-              </div>
-            </motion.div>
-          );
-        })}
+        {/* Right column: 2 keyword panels stacked */}
+        {[0, 1].map((row) => (
+          <motion.div
+            key={row}
+            className="bg-white/85 backdrop-blur-md border border-stone-200/90 rounded-xl p-3 md:p-4 flex flex-col justify-center gap-2"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 + row * 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {exhibit.keywords.slice(row * 2, row * 2 + 2).map((kw, i) => {
+              const IconComponent = ICON_MAP[kw.icon];
+              return (
+                <div key={i} className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: `${exhibit.accentColor}15`, color: exhibit.accentColor }}>
+                    {IconComponent && <IconComponent className="w-4 h-4" />}
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold text-neutral-900 block">{kw.label}</span>
+                    <span className="text-[9px] text-stone-500 block">{kw.sublabel}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
