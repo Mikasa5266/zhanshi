@@ -70,6 +70,16 @@ export const SCENES_DATA: SlideData[] = [
     description: "以AI Agent为核心，实现测试用例录制、脚本生成、执行与GJB文档自动输出。",
     accentColor: "#06b6d4",
     themeColor: "from-slate-950 via-zinc-950 to-neutral-950"
+  },
+  {
+    id: 7,
+    title: "合作伙伴",
+    subtitle: "军民企业 · 生态共建",
+    englishTitle: "PARTNERS & ECOSYSTEM",
+    tagline: "覆盖军工科研、检测认证、头部企业全生态",
+    description: "与30+军工科研院所、国家级检测机构及头部ICT企业建立深度合作。",
+    accentColor: "#1d4ed8",
+    themeColor: "from-blue-950 via-neutral-950 to-neutral-950"
   }
 ];
 
@@ -110,7 +120,9 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'ListChecks', label: '需求全覆盖', sublabel: '自动追溯矩阵' },
       { icon: 'FileCheck', label: 'GJB合规', sublabel: '军标文档输出' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 测试用例自动生成',
+    screenshots: ['/screenshots/auto-testgen-1.png', '/screenshots/auto-testgen-2.png', '/screenshots/auto-testgen-3.png'],
   },
   {
     id: 'webrunner-guirunner',
@@ -125,7 +137,9 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'Replace', label: '国产替代', sublabel: '替换LoadRunner' },
       { icon: 'Monitor', label: '全界面覆盖', sublabel: 'GUI自动录制回放' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 WebRunner',
+    screenshots: ['/screenshots/webrunner-1.png', '/screenshots/webrunner-2.png', '/screenshots/webrunner-3.png'],
   },
   {
     id: 'db-benchmark',
@@ -140,7 +154,9 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'Play', label: '一键部署', sublabel: '自动化测试流程' },
       { icon: 'Award', label: '权威认证', sublabel: '国家标准制定者' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 数据库基准测试',
+    screenshots: ['/screenshots/db-benchmark-1.png', '/screenshots/db-benchmark-2.png', '/screenshots/db-benchmark-3.png'],
   },
   {
     id: 'military-data',
@@ -155,7 +171,9 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'Lock', label: '多密级管控', sublabel: '分级权限体系' },
       { icon: 'Cpu', label: '自主可控', sublabel: '国产芯片适配' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 军用数据集管理',
+    screenshots: ['/screenshots/military-data-1.png', '/screenshots/military-data-2.png', '/screenshots/military-data-3.png'],
   },
   {
     id: 'db-backup',
@@ -170,7 +188,9 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'Gauge', label: '低资源占用', sublabel: '轻量化设计' },
       { icon: 'Laptop', label: '跨平台', sublabel: '信创全适配' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 数据库备份',
+    screenshots: ['/screenshots/db-backup-1.png', '/screenshots/db-backup-2.png', '/screenshots/db-backup-3.png'],
   },
   {
     id: 'agentrunner',
@@ -185,6 +205,22 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'FileText', label: '文档生成', sublabel: 'GJB438C合规' },
       { icon: 'Eye', label: '多模态', sublabel: '视觉+语义理解' },
     ],
-    videoUrl: '/videos/webrunner.mp4'
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 AgentRunner',
+    screenshots: ['/screenshots/agentrunner-1.png', '/screenshots/agentrunner-2.png', '/screenshots/agentrunner-3.png'],
+  },
+  {
+    id: 'partners',
+    name: '合作伙伴',
+    subtitle: '覆盖军工科研、检测认证、头部企业全生态',
+    englishTag: 'PARTNERS & ECOSYSTEM',
+    accentColor: '#1d4ed8',
+    themeColor: 'from-blue-950 via-neutral-950 to-neutral-950',
+    keywords: [
+      { icon: 'Shield', label: '军工科研', sublabel: '8+研究所' },
+      { icon: 'BadgeCheck', label: '检测机构', sublabel: '13+机构' },
+      { icon: 'Building2', label: '企业合作', sublabel: '14+企业' },
+      { icon: 'Target', label: '生态覆盖', sublabel: '35+合作方' },
+    ],
   }
 ];

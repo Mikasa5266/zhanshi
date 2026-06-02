@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle } from 'lucide-react';
 import { SlideLayoutProps } from './SlideLayout';
+import ImageCarousel from '../ImageCarousel';
+import PlayVideoButton from '../PlayVideoButton';
 
 const SOURCE_CODE_LINES = [
   'def parse_requirement(doc):',
@@ -29,7 +30,7 @@ const OUTPUT_CODE_LINES = [
   '    assert all(r.ok for r in results)',
 ];
 
-export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
+export default function AITestGenLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
       {/* Floating keyword tags - top area */}
@@ -96,26 +97,18 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 rounded-br-xl" style={{ borderColor: `${exhibit.accentColor}50` }} />
           </motion.div>
 
-          {/* Video */}
+          {/* Screenshot Carousel */}
           <motion.div
-            className="relative w-full aspect-video rounded-xl overflow-hidden bg-stone-900/95 flex items-center justify-center"
+            className="relative w-full aspect-video rounded-xl overflow-hidden bg-stone-100 flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            {exhibit.videoUrl ? (
-              <video
-                src={exhibit.videoUrl}
-                className="w-full h-full object-cover"
-                muted autoPlay playsInline
-                onEnded={onVideoEnd}
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center gap-3 text-stone-400">
-                <PlayCircle className="w-12 h-12 md:w-16 md:h-16 opacity-40" />
-                <span className="text-xs md:text-sm font-mono opacity-60">视频待接入</span>
-              </div>
-            )}
+            <ImageCarousel
+              images={exhibit.screenshots || []}
+              accentColor={exhibit.accentColor}
+              className="w-full h-full"
+            />
           </motion.div>
         </div>
 
@@ -194,6 +187,17 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         </h2>
         <span className="text-[13px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
       </motion.div>
+
+      {/* Play video button */}
+      {exhibit.videoUrl && (
+        <div className="mt-3">
+          <PlayVideoButton
+            label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+            accentColor={exhibit.accentColor}
+            onClick={() => onPlayVideo?.()}
+          />
+        </div>
+      )}
     </div>
   );
 }

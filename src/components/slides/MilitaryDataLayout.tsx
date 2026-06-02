@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle, Layers, ArrowDown } from 'lucide-react';
+import { Layers, ArrowDown } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
+import ImageCarousel from '../ImageCarousel';
+import PlayVideoButton from '../PlayVideoButton';
 
 const PIPELINE_STAGES = [
   { label: '原始数据', desc: '日志/文本/图像/视频', color: '#dc2626' },
@@ -10,7 +12,7 @@ const PIPELINE_STAGES = [
   { label: 'AI就绪', desc: '高质量训练数据集', color: '#059669' },
 ];
 
-export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
+export default function MilitaryDataLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
       <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-5">
@@ -115,25 +117,17 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
         <div className="relative flex-1 flex flex-col gap-3">
           {/* Video main area */}
           <motion.div
-            className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center"
+            className="relative flex-1 rounded-2xl overflow-hidden bg-stone-100 flex items-center justify-center"
             style={{ border: `1px solid ${exhibit.accentColor}25` }}
             initial={{ opacity: 0, scale: 0.93 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            {exhibit.videoUrl ? (
-              <video
-                src={exhibit.videoUrl}
-                className="w-full h-full object-cover"
-                muted autoPlay playsInline
-                onEnded={onVideoEnd}
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
-                <PlayCircle className="w-16 h-16 opacity-20" />
-                <span className="text-xs font-mono opacity-50">视频待接入</span>
-              </div>
-            )}
+            <ImageCarousel
+              images={exhibit.screenshots || []}
+              accentColor={exhibit.accentColor}
+              className="w-full h-full"
+            />
 
             {/* Data flow particles overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -169,6 +163,17 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
               <Layers className="w-3 h-3" style={{ color: exhibit.accentColor }} />
               <span className="text-[13px] font-mono text-stone-300">多密级数据治理</span>
             </motion.div>
+
+            {/* Play video button */}
+            {exhibit.videoUrl && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <PlayVideoButton
+                  label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                  accentColor={exhibit.accentColor}
+                  onClick={() => onPlayVideo?.()}
+                />
+              </div>
+            )}
           </motion.div>
 
           {/* Bottom stats bar */}

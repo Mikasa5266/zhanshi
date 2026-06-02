@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle, Clock, Undo2 } from 'lucide-react';
+import { Clock, Undo2 } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
+import ImageCarousel from '../ImageCarousel';
+import PlayVideoButton from '../PlayVideoButton';
 
 const TIMELINE_POINTS = [
   { time: '09:00', label: '全量备份', size: 'lg' },
@@ -12,7 +14,7 @@ const TIMELINE_POINTS = [
   { time: '18:00', label: '全量备份', size: 'lg' },
 ];
 
-export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
+export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
       {/* Subtle clock pattern */}
@@ -117,27 +119,19 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
 
         {/* Main content: video + feature cards side by side */}
         <div className="flex gap-3 flex-1 min-h-0">
-          {/* Video */}
+          {/* Screenshot Carousel */}
           <motion.div
-            className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center border"
+            className="relative flex-1 rounded-2xl overflow-hidden bg-stone-100 flex items-center justify-center border"
             style={{ borderColor: `${exhibit.accentColor}25` }}
             initial={{ opacity: 0, scale: 0.93 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            {exhibit.videoUrl ? (
-              <video
-                src={exhibit.videoUrl}
-                className="w-full h-full object-cover"
-                muted autoPlay playsInline
-                onEnded={onVideoEnd}
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
-                <PlayCircle className="w-16 h-16 opacity-20" />
-                <span className="text-xs font-mono opacity-50">视频待接入</span>
-              </div>
-            )}
+            <ImageCarousel
+              images={exhibit.screenshots || []}
+              accentColor={exhibit.accentColor}
+              className="w-full h-full"
+            />
 
             {/* Resource usage indicator */}
             <motion.div
@@ -174,6 +168,17 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
                 </div>
               </div>
             </motion.div>
+
+            {/* Play video button */}
+            {exhibit.videoUrl && (
+              <div className="absolute top-3 right-3">
+                <PlayVideoButton
+                  label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                  accentColor={exhibit.accentColor}
+                  onClick={() => onPlayVideo?.()}
+                />
+              </div>
+            )}
           </motion.div>
 
           {/* Right: Feature cards stacked */}

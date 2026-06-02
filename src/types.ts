@@ -30,6 +30,8 @@ export interface ExhibitItem {
   themeColor: string;
   keywords: ExhibitKeyword[];
   videoUrl?: string;
+  videoLabel?: string;
+  screenshots?: string[];
   coreCapabilities?: CoreCapability[];
   certifications?: string[];
 }

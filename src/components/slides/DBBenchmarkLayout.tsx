@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle, Trophy, Crown } from 'lucide-react';
+import { Trophy, Crown } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
+import ImageCarousel from '../ImageCarousel';
+import PlayVideoButton from '../PlayVideoButton';
 
 const DB_RANKINGS = [
   { rank: 1, name: '达梦 DM8', score: 12847, delta: '+3.2%' },
@@ -10,7 +12,7 @@ const DB_RANKINGS = [
   { rank: 4, name: 'TiDB', score: 8920, delta: '+0.9%' },
 ];
 
-export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
+export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
       {/* Racing stripe background */}
@@ -125,26 +127,18 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
           </motion.div>
         </motion.div>
 
-        {/* Right: Video as the "race footage" */}
+        {/* Right: Screenshot Carousel */}
         <motion.div
-          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center border border-stone-800"
+          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-100 flex flex-col items-center justify-center border border-stone-200"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {exhibit.videoUrl ? (
-            <video
-              src={exhibit.videoUrl}
-              className="w-full h-full object-cover"
-              muted autoPlay playsInline
-              onEnded={onVideoEnd}
-            />
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
-              <PlayCircle className="w-16 h-16 opacity-20" />
-              <span className="text-xs font-mono opacity-50">视频待接入</span>
-            </div>
-          )}
+          <ImageCarousel
+            images={exhibit.screenshots || []}
+            accentColor={exhibit.accentColor}
+            className="w-full h-full"
+          />
 
           {/* Overlay: animated score counter */}
           <motion.div
@@ -181,6 +175,17 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
               <span className="text-[13px] font-mono text-stone-300">总装校准通过</span>
             </div>
           </motion.div>
+
+          {/* Play video button */}
+          {exhibit.videoUrl && (
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2">
+              <PlayVideoButton
+                label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                accentColor={exhibit.accentColor}
+                onClick={() => onPlayVideo?.()}
+              />
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

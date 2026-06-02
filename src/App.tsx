@@ -5,6 +5,7 @@ import ShaderCanvas from './components/ShaderCanvas';
 import Preloader from './components/Preloader';
 import ScenicSlides from './components/ScenicSlides';
 import BrandLogo from './components/BrandLogo';
+import VideoPlayerModal from './components/VideoPlayerModal';
 import {
   ChevronDown,
   ChevronUp,
@@ -21,6 +22,7 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   const [userLogo, setUserLogo] = useState<string | null>(() => {
     try {
@@ -62,25 +64,21 @@ export default function App() {
     setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  const currentExhibitHasVideo = !!EXHIBIT_LIST[currentSlide]?.videoUrl;
-
   const resetAutoPlay = useCallback(() => {
     if (autoPlayTimer.current) {
       clearInterval(autoPlayTimer.current);
       autoPlayTimer.current = null;
     }
-    if (isAutoPlaying && !currentExhibitHasVideo) {
+    if (isAutoPlaying) {
       autoPlayTimer.current = setInterval(() => {
         setCurrentSlide(prev => (prev + 1) % totalSlides);
       }, AUTOPLAY_INTERVAL);
     }
-  }, [isAutoPlaying, totalSlides, currentExhibitHasVideo]);
-
-  const handleVideoEnd = useCallback(() => {
-    if (isAutoPlaying) {
-      setCurrentSlide(prev => (prev + 1) % totalSlides);
-    }
   }, [isAutoPlaying, totalSlides]);
+
+  const handlePlayVideo = useCallback(() => {
+    setVideoModalOpen(true);
+  }, []);
 
   useEffect(() => {
     resetAutoPlay();
@@ -254,7 +252,7 @@ export default function App() {
 
           {/* Main content */}
           <main className="flex-1 w-full relative z-10 flex items-center justify-center">
-            <ScenicSlides activeSlide={currentSlide} onVideoEnd={handleVideoEnd} />
+            <ScenicSlides activeSlide={currentSlide} onPlayVideo={handlePlayVideo} />
           </main>
 
           {/* Footer */}
@@ -321,6 +319,13 @@ export default function App() {
           </footer>
         </div>
       )}
+
+      <VideoPlayerModal
+        isOpen={videoModalOpen}
+        videoUrl={EXHIBIT_LIST[currentSlide]?.videoUrl || ''}
+        title={EXHIBIT_LIST[currentSlide]?.name}
+        onClose={() => setVideoModalOpen(false)}
+      />
     </div>
   );
 }

@@ -6,9 +6,10 @@ import { SLIDE_LAYOUTS } from './slides';
 interface ScenicSlidesProps {
   activeSlide: number;
   onVideoEnd?: () => void;
+  onPlayVideo?: () => void;
 }
 
-export default function ScenicSlides({ activeSlide, onVideoEnd }: ScenicSlidesProps) {
+export default function ScenicSlides({ activeSlide, onVideoEnd, onPlayVideo }: ScenicSlidesProps) {
   const exhibit = EXHIBIT_LIST[activeSlide];
   if (!exhibit) return null;
 
@@ -26,7 +27,7 @@ export default function ScenicSlides({ activeSlide, onVideoEnd }: ScenicSlidesPr
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <LayoutComponent exhibit={exhibit} slideIndex={activeSlide} onVideoEnd={onVideoEnd} />
+          <LayoutComponent exhibit={exhibit} slideIndex={activeSlide} onVideoEnd={onVideoEnd} onPlayVideo={onPlayVideo} />
         </motion.div>
       </AnimatePresence>
     </div>

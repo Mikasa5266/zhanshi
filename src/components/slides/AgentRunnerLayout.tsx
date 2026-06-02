@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { PlayCircle, Bot } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import { SlideLayoutProps, ICON_MAP } from './SlideLayout';
+import ImageCarousel from '../ImageCarousel';
+import PlayVideoButton from '../PlayVideoButton';
 
 const AGENT_NODES = [
   { id: 'design', label: '测试设计', top: '8%', left: '25%' },
@@ -10,7 +12,7 @@ const AGENT_NODES = [
   { id: 'report', label: '文档输出', top: '62%', left: '62%' },
 ];
 
-export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProps) {
+export default function AgentRunnerLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
       <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-4">
@@ -93,27 +95,19 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
           </div>
         </motion.div>
 
-        {/* Right: Video */}
+        {/* Right: Screenshot Carousel */}
         <motion.div
-          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-900 flex items-center justify-center border"
+          className="relative flex-1 rounded-2xl overflow-hidden bg-stone-100 flex items-center justify-center border"
           style={{ borderColor: `${exhibit.accentColor}20` }}
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {exhibit.videoUrl ? (
-            <video
-              src={exhibit.videoUrl}
-              className="w-full h-full object-cover"
-              muted autoPlay playsInline
-              onEnded={onVideoEnd}
-            />
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-3 text-stone-500">
-              <PlayCircle className="w-16 h-16 opacity-20" />
-              <span className="text-xs font-mono opacity-50">视频待接入</span>
-            </div>
-          )}
+          <ImageCarousel
+            images={exhibit.screenshots || []}
+            accentColor={exhibit.accentColor}
+            className="w-full h-full"
+          />
 
           {/* Architecture layers overlay */}
           <motion.div
@@ -156,6 +150,17 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
               <span className="text-[13px] font-mono text-stone-300">4 Agents Active</span>
             </div>
           </motion.div>
+
+          {/* Play video button */}
+          {exhibit.videoUrl && (
+            <div className="absolute top-3 right-3">
+              <PlayVideoButton
+                label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                accentColor={exhibit.accentColor}
+                onClick={() => onPlayVideo?.()}
+              />
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

@@ -21,6 +21,7 @@ export interface SlideLayoutProps {
   exhibit: ExhibitItem;
   slideIndex: number;
   onVideoEnd?: () => void;
+  onPlayVideo?: () => void;
 }
 
 export function KeywordCard({ icon, label, sublabel, delay, accentColor }: {
