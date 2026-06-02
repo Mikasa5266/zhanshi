@@ -106,7 +106,7 @@ export default function WebRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProp
               animate={{ x: ['-100%', '200%'] }}
               transition={{ duration: 3, delay: i * 0.5, repeat: Infinity }}
             />
-            <span className="relative text-[10px] md:text-[11px] font-bold font-mono" style={{ color: exhibit.accentColor }}>
+            <span className="relative text-[14px] md:text-[15px] font-bold font-mono" style={{ color: exhibit.accentColor }}>
               {kw.label}
             </span>
           </motion.div>
@@ -121,7 +121,7 @@ export default function WebRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         transition={{ delay: 0.7, duration: 0.5 }}
       >
         <div className="flex items-center gap-3">
-          <span className="text-[9px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full"
+          <span className="text-[13px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full"
             style={{ color: exhibit.accentColor, backgroundColor: `${exhibit.accentColor}10` }}>
             WebRunner
           </span>
@@ -131,7 +131,7 @@ export default function WebRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProp
             animate={{ scaleX: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-[9px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full"
+          <span className="text-[13px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full"
             style={{ color: exhibit.accentColor, backgroundColor: `${exhibit.accentColor}10` }}>
             GUIRunner
           </span>
@@ -139,7 +139,7 @@ export default function WebRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         <h2 className="text-base md:text-xl font-extrabold text-neutral-900 tracking-tight font-display">
           {exhibit.name}
         </h2>
-        <span className="text-[9px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
+        <span className="text-[13px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
       </motion.div>
     </div>
   );

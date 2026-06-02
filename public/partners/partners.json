@@ -1,0 +1,553 @@
+{
+  "generatedAt": "2026-06-02T00:00:00+08:00",
+  "assetRoot": "/partners/logos",
+  "logoConfidenceLegend": {
+    "official": "官网公开 logo，可直接优先使用",
+    "official-related": "官网公开相关体系标识，非客户独立站标",
+    "group": "未找到客户独立公开 logo，使用上级集团官方标识",
+    "official-likely": "公开官网标识，机构对应关系需业务侧再确认",
+    "text-fallback": "未找到稳定公开 logo，已生成文字占位，建议向客户获取正式授权 logo"
+  },
+  "partners": [
+    {
+      "id": "cetc-15th-institute",
+      "cnName": "中国电子科技集团公司第十五研究所",
+      "enName": "CETC 15th Institute",
+      "category": "military-research",
+      "logo": "/partners/logos/cetc-15th-institute.png",
+      "logoConfidence": "group",
+      "features": [
+        "中国电科所属科研院所",
+        "软件与信息系统测评相关客户",
+        "使用中国电科集团公开标识"
+      ],
+      "source": "https://15.cetc.com.cn/",
+      "logoSource": "https://www.cetc.com.cn/"
+    },
+    {
+      "id": "cetc-28th-institute",
+      "cnName": "中国电子科技集团公司第二十八研究所",
+      "enName": "CETC 28th Institute",
+      "category": "military-research",
+      "logo": "/partners/logos/cetc-28th-institute.png",
+      "logoConfidence": "group",
+      "features": [
+        "中国电科所属科研院所",
+        "电子信息系统总体与测评相关客户",
+        "使用中国电科集团公开标识"
+      ],
+      "source": "https://28.cetc.com.cn/",
+      "logoSource": "https://www.cetc.com.cn/"
+    },
+    {
+      "id": "casic-706-institute",
+      "cnName": "中国航天科工集团第二研究院七〇六所",
+      "enName": "CASIC 706 Institute",
+      "category": "military-research",
+      "logo": "/partners/logos/casic-706-institute.png",
+      "logoConfidence": "group",
+      "features": [
+        "航天科工二院所属单位",
+        "计算机与软件系统相关客户",
+        "使用航天科工集团公开标识"
+      ],
+      "source": "http://www.casic.com.cn/",
+      "logoSource": "http://www.casic.com.cn/"
+    },
+    {
+      "id": "casic-304-institute",
+      "cnName": "中国航天科工集团第三研究院三〇四所",
+      "enName": "CASIC 304 Institute",
+      "category": "military-research",
+      "logo": "/partners/logos/casic-304-institute.png",
+      "logoConfidence": "group",
+      "features": [
+        "航天科工三院所属单位",
+        "软件测评/信息化服务相关客户",
+        "使用航天科工集团公开标识"
+      ],
+      "source": "http://www.casic.com.cn/",
+      "logoSource": "http://www.casic.com.cn/"
+    },
+    {
+      "id": "caep-iea-institute",
+      "cnName": "中国工程物理研究院应用电子学研究所",
+      "enName": "CAEP Institute of Applied Electronics",
+      "category": "military-research",
+      "logo": "/partners/logos/caep-iea-institute.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "中国工程物理研究院相关研究所",
+        "应用电子学方向科研客户",
+        "未找到稳定公开独立 logo，已生成文字占位"
+      ],
+      "source": "https://www.caep.ac.cn/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "china-astronaut-center",
+      "cnName": "中国航天员中心",
+      "enName": "China Astronaut Center",
+      "category": "military-research",
+      "logo": "/partners/logos/china-astronaut-center.png",
+      "logoConfidence": "official-related",
+      "features": [
+        "载人航天工程体系相关单位",
+        "航天员训练与医学工程相关客户",
+        "使用中国载人航天官网公开标识"
+      ],
+      "source": "https://www.cmse.gov.cn/",
+      "logoSource": "https://www.cmse.gov.cn/images/indexImg1400_20200220_03.png"
+    },
+    {
+      "id": "csic-709-institute",
+      "cnName": "中船重工709所",
+      "enName": "CSIC 709 Institute",
+      "category": "military-research",
+      "logo": "/partners/logos/csic-709-institute.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "中船重工体系研究所",
+        "船舶与信息化方向客户",
+        "未找到稳定公开独立 logo，已生成文字占位"
+      ],
+      "source": "https://www.cssc.net.cn/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "guizhou-aerospace-metrology",
+      "cnName": "贵州航天计量测试技术研究所",
+      "enName": "Guizhou Aerospace Metrology",
+      "category": "military-research",
+      "logo": "/partners/logos/guizhou-aerospace-metrology.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "航天领域计量测试机构",
+        "计量/测试服务相关客户",
+        "官网访问不稳定，已生成文字占位"
+      ],
+      "source": "https://www.gzhtcs.com/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "cesi",
+      "cnName": "中国电子技术标准化研究院",
+      "enName": "CESI",
+      "category": "testing-agency",
+      "logo": "/partners/logos/cesi.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "电子信息技术标准化机构",
+        "标准、测评与认证相关合作客户",
+        "官网仅稳定抓到 favicon，已生成文字占位"
+      ],
+      "source": "https://www.cesi.cn/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "china-software-testing-center",
+      "cnName": "中国软件评测中心",
+      "enName": "China Software Testing Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/china-software-testing-center.png",
+      "logoConfidence": "official",
+      "features": [
+        "国家级软件与信息系统评测机构",
+        "软件测评、质量保障与认证服务",
+        "官网公开 logo"
+      ],
+      "source": "https://www.cstc.org.cn/",
+      "logoSource": "https://www.cstc.org.cn/images/logo0925.png"
+    },
+    {
+      "id": "ceprei",
+      "cnName": "工业和信息化部电子第五研究所",
+      "enName": "CEPREI",
+      "category": "testing-agency",
+      "logo": "/partners/logos/ceprei.png",
+      "logoConfidence": "official",
+      "features": [
+        "电子产品可靠性与环境试验机构",
+        "工业和信息化领域质量可靠性服务",
+        "官网公开 logo"
+      ],
+      "source": "https://www.ceprei.com/",
+      "logoSource": "https://www.ceprei.com/assets/img/logo1-default.png"
+    },
+    {
+      "id": "national-industrial-information-security-center",
+      "cnName": "国家工业信息安全发展研究中心",
+      "enName": "National Industrial Information Security Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/national-industrial-information-security-center.png",
+      "logoConfidence": "official",
+      "features": [
+        "工业信息安全领域研究机构",
+        "安全测评与产业支撑相关客户",
+        "官网公开文字标识"
+      ],
+      "source": "https://www.cics-cert.org.cn/",
+      "logoSource": "https://www.cics-cert.org.cn/web_root/images/logo-text.png"
+    },
+    {
+      "id": "caict",
+      "cnName": "中国信息通信研究院",
+      "enName": "CAICT",
+      "category": "testing-agency",
+      "logo": "/partners/logos/caict.png",
+      "logoConfidence": "official",
+      "features": [
+        "信息通信领域国家级智库和测评机构",
+        "ICT 产业研究、标准与测试认证",
+        "官网公开 logo"
+      ],
+      "source": "https://www.caict.ac.cn/",
+      "logoSource": "https://www.caict.ac.cn/images/logo.png"
+    },
+    {
+      "id": "china-aii",
+      "cnName": "中国工业互联网研究院",
+      "enName": "China Academy of Industrial Internet",
+      "category": "testing-agency",
+      "logo": "/partners/logos/china-aii.png",
+      "logoConfidence": "official",
+      "features": [
+        "工业互联网领域研究机构",
+        "工业互联网平台、标识解析与测评支撑",
+        "官网公开 logo"
+      ],
+      "source": "https://www.china-aii.com/",
+      "logoSource": "https://www.china-aii.com/r/cms/www/default/static/picture/logo.png"
+    },
+    {
+      "id": "national-computer-quality-inspection-center",
+      "cnName": "国家电子计算机质量监督检验中心",
+      "enName": "National Computer Quality Inspection Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/national-computer-quality-inspection-center.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "电子计算机产品质量监督检验机构",
+        "计算机软硬件质量检验相关客户",
+        "未找到稳定公开独立 logo，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "hubei-standard-quality-institute",
+      "cnName": "湖北省标准化与质量研究院",
+      "enName": "Hubei Standardization and Quality Institute",
+      "category": "testing-agency",
+      "logo": "/partners/logos/hubei-standard-quality-institute.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "地方标准化与质量技术机构",
+        "标准、质量与测评服务客户",
+        "官网未稳定暴露 logo，已生成文字占位"
+      ],
+      "source": "https://www.hbsqi.com/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "hangzhou-evaluation-center",
+      "cnName": "杭州测评中心",
+      "enName": "Hangzhou Evaluation Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/hangzhou-evaluation-center.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "地方测评机构客户",
+        "软件/信息系统测评服务相关",
+        "名称存在多种公开写法，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "jiangxi-software-evaluation-center",
+      "cnName": "江西省软件测评中心",
+      "enName": "Jiangxi Software Evaluation Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/jiangxi-software-evaluation-center.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "江西省软件测评相关机构",
+        "软件质量与测评服务客户",
+        "未找到稳定公开 logo，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "zhuhai-southern-network-assessment-center",
+      "cnName": "珠海南方网络测评中心",
+      "enName": "Zhuhai Southern Network Assessment Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/zhuhai-southern-network-assessment-center.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "网络安全/信息系统测评相关机构",
+        "地方网络测评服务客户",
+        "未找到稳定公开 logo，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "shenzhen-cybersecurity-assessment-center",
+      "cnName": "深圳网络安全测评中心",
+      "enName": "Shenzhen Cybersecurity Assessment Center",
+      "category": "testing-agency",
+      "logo": "/partners/logos/shenzhen-cybersecurity-assessment-center.png",
+      "logoConfidence": "official-likely",
+      "features": [
+        "深圳网络安全测评相关机构",
+        "网络安全测评与认证服务",
+        "使用深圳 CA 官网公开标识"
+      ],
+      "source": "https://www.szca.com/",
+      "logoSource": "https://www.szca.com/static/cn/img/logo.png"
+    },
+    {
+      "id": "aerospace-cnas-software-testing",
+      "cnName": "航天中认软件测评公司",
+      "enName": "Aerospace CNAS Software Testing",
+      "category": "testing-agency",
+      "logo": "/partners/logos/aerospace-cnas-software-testing.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "航天体系软件测评相关企业",
+        "软件测试与认证服务客户",
+        "未找到稳定公开 logo，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "alibaba",
+      "cnName": "阿里",
+      "enName": "Alibaba",
+      "category": "enterprise",
+      "logo": "/partners/logos/alibaba.svg",
+      "logoConfidence": "official",
+      "features": [
+        "互联网与云计算企业",
+        "企业用户，测试服务支持/智能运维场景",
+        "官网公开 SVG logo"
+      ],
+      "source": "https://www.alibabagroup.com/",
+      "logoSource": "https://www.alibabagroup.com/assets2/img/logo.svg"
+    },
+    {
+      "id": "tencent",
+      "cnName": "腾讯",
+      "enName": "Tencent",
+      "category": "enterprise",
+      "logo": "/partners/logos/tencent.png",
+      "logoConfidence": "official",
+      "features": [
+        "互联网平台与云服务企业",
+        "企业用户，测试服务支持/智能运维场景",
+        "官网公开 logo"
+      ],
+      "source": "https://www.tencent.com/",
+      "logoSource": "https://www.tencent.com/img/index/tencent_logo.png"
+    },
+    {
+      "id": "huawei",
+      "cnName": "华为",
+      "enName": "Huawei",
+      "category": "enterprise",
+      "logo": "/partners/logos/huawei.png",
+      "logoConfidence": "official",
+      "features": [
+        "ICT 基础设施与终端企业",
+        "国产软硬件生态与测试服务相关客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.huawei.com/cn/",
+      "logoSource": "https://www.huawei.com/-/media/hcomponent-header/1.0.1.20260519084135/component/img/huawei_logo.png"
+    },
+    {
+      "id": "zte",
+      "cnName": "中兴",
+      "enName": "ZTE",
+      "category": "enterprise",
+      "logo": "/partners/logos/zte.png",
+      "logoConfidence": "official",
+      "features": [
+        "通信设备与 ICT 企业",
+        "国产 ICT 生态测试服务客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.zte.com.cn/china/",
+      "logoSource": "https://www.zte.com.cn/content/dam/zte-site/res-www-zte-com-cn/navigator/china/main/img/logo-blue.png"
+    },
+    {
+      "id": "phytium",
+      "cnName": "飞腾",
+      "enName": "Phytium",
+      "category": "enterprise",
+      "logo": "/partners/logos/phytium.png",
+      "logoConfidence": "official",
+      "features": [
+        "国产 CPU 企业",
+        "信创基础软硬件生态客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.phytium.com.cn/",
+      "logoSource": "https://www.phytium.com.cn/static/img/homepage/logo.png"
+    },
+    {
+      "id": "hygon",
+      "cnName": "海光",
+      "enName": "Hygon",
+      "category": "enterprise",
+      "logo": "/partners/logos/hygon.png",
+      "logoConfidence": "official",
+      "features": [
+        "国产处理器企业",
+        "信创基础软硬件生态客户",
+        "官网构建资源公开 logo"
+      ],
+      "source": "https://www.hygon.cn/",
+      "logoSource": "https://www.hygon.cn/res/hygon/logo-header.png"
+    },
+    {
+      "id": "kylinsoft",
+      "cnName": "麒麟",
+      "enName": "Kylinsoft",
+      "category": "enterprise",
+      "logo": "/partners/logos/kylinsoft.png",
+      "logoConfidence": "official",
+      "features": [
+        "国产操作系统企业",
+        "信创操作系统生态客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.kylinos.cn/",
+      "logoSource": "https://www.kylinos.cn/template/1/ky-default/images/logo.png"
+    },
+    {
+      "id": "uniontech",
+      "cnName": "统信",
+      "enName": "UnionTech",
+      "category": "enterprise",
+      "logo": "/partners/logos/uniontech.png",
+      "logoConfidence": "official",
+      "features": [
+        "国产操作系统企业",
+        "信创操作系统生态客户",
+        "官网公开 logo 图标"
+      ],
+      "source": "https://www.chinauos.com/",
+      "logoSource": "https://www.chinauos.com/assets/images/logo/logoIcnNew.png"
+    },
+    {
+      "id": "inspur",
+      "cnName": "浪潮",
+      "enName": "Inspur",
+      "category": "enterprise",
+      "logo": "/partners/logos/inspur.png",
+      "logoConfidence": "official",
+      "features": [
+        "云计算与服务器企业",
+        "基础设施与测试服务相关客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.inspur.com/",
+      "logoSource": "https://www.inspur.com/uiFramework/commonResource/image/logo.png"
+    },
+    {
+      "id": "dameng",
+      "cnName": "达梦",
+      "enName": "Dameng",
+      "category": "enterprise",
+      "logo": "/partners/logos/dameng.png",
+      "logoConfidence": "official",
+      "features": [
+        "国产数据库企业",
+        "数据库基准测试与信创生态客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.dameng.com/",
+      "logoSource": "https://www.dameng.com/static/cn/images/dm_cn/logo.png"
+    },
+    {
+      "id": "chinasoft",
+      "cnName": "中软",
+      "enName": "China Software",
+      "category": "enterprise",
+      "logo": "/partners/logos/chinasoft.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "大型软件与信息服务企业",
+        "企业级软件生态客户",
+        "官网未稳定暴露 logo，已生成文字占位"
+      ],
+      "source": "https://www.css.com.cn/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "longshine",
+      "cnName": "朗新",
+      "enName": "Longshine",
+      "category": "enterprise",
+      "logo": "/partners/logos/longshine.svg",
+      "logoConfidence": "official",
+      "features": [
+        "能源互联网与数字化服务企业",
+        "企业级系统测试服务客户",
+        "官网公开 SVG logo"
+      ],
+      "source": "https://www.longshine.com/",
+      "logoSource": "https://www.longshine.com/static/images/logo.svg"
+    },
+    {
+      "id": "chinasiwei",
+      "cnName": "中国四维",
+      "enName": "China Siwei",
+      "category": "enterprise",
+      "logo": "/partners/logos/chinasiwei.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "航天遥感与地理信息企业",
+        "地理信息与数据服务相关客户",
+        "官网未稳定暴露 logo，已生成文字占位"
+      ],
+      "source": "https://www.chinasiwei.com/",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "chutiancloud",
+      "cnName": "楚天云",
+      "enName": "Chutian Cloud",
+      "category": "enterprise",
+      "logo": "/partners/logos/chutiancloud.png",
+      "logoConfidence": "text-fallback",
+      "features": [
+        "云服务与政企数字化相关企业",
+        "企业用户，系统智能运维解决方案相关",
+        "官网域名未稳定解析，已生成文字占位"
+      ],
+      "source": "",
+      "logoSource": "text fallback generated 2026-06-02"
+    },
+    {
+      "id": "fiberhome",
+      "cnName": "烽火",
+      "enName": "FiberHome",
+      "category": "enterprise",
+      "logo": "/partners/logos/fiberhome.png",
+      "logoConfidence": "official",
+      "features": [
+        "通信设备与光网络企业",
+        "ICT 基础设施与测试服务客户",
+        "官网公开 logo"
+      ],
+      "source": "https://www.fiberhome.com/",
+      "logoSource": "https://www.fiberhome.com/r/cms/www/fenghuotongxin/images/public/logo.png"
+    }
+  ]
+}

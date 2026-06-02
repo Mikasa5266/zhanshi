@@ -26,7 +26,7 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
         <p className="text-sm md:text-base text-stone-700 mt-3 font-sans font-medium">
           {exhibit.subtitle}
         </p>
-        <p className="text-[10px] md:text-xs text-stone-500 mt-1.5 font-sans tracking-wide">
+        <p className="text-[14px] md:text-xs text-stone-500 mt-1.5 font-sans tracking-wide">
           军民融合 / 国内首创 / 自主可控
         </p>
       </motion.div>
@@ -55,8 +55,8 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
                 )}
               </div>
               <div>
-                <span className="text-[11px] font-bold text-neutral-800 block">{kw.label}</span>
-                <span className="text-[9px] text-stone-500 block">{kw.sublabel}</span>
+                <span className="text-[15px] font-bold text-neutral-800 block">{kw.label}</span>
+                <span className="text-[13px] text-stone-500 block">{kw.sublabel}</span>
               </div>
             </motion.div>
           );
@@ -85,7 +85,7 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
                   style={{ backgroundColor: `${exhibit.accentColor}12`, color: exhibit.accentColor }}>
                   {IconComponent && <IconComponent className="w-3 h-3" />}
                 </div>
-                <span className="text-[10px] md:text-[11px] font-semibold text-neutral-700">{cap.label}</span>
+                <span className="text-[14px] md:text-[15px] font-semibold text-neutral-700">{cap.label}</span>
               </motion.div>
             );
           })}
@@ -101,7 +101,7 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
           transition={{ delay: 0.85, duration: 0.5 }}
         >
           {exhibit.certifications.map((cert, i) => (
-            <span key={i} className="text-[9px] md:text-[10px] font-mono text-stone-500 tracking-wide">
+            <span key={i} className="text-[13px] md:text-[14px] font-mono text-stone-500 tracking-wide">
               {cert}
             </span>
           ))}
@@ -110,7 +110,7 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
 
       {/* English Tag */}
       <motion.span
-        className="text-[9px] md:text-[10px] font-mono text-stone-400 tracking-widest"
+        className="text-[13px] md:text-[14px] font-mono text-stone-400 tracking-widest"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}

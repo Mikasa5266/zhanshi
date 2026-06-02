@@ -24,9 +24,9 @@ export default function App() {
 
   const [userLogo, setUserLogo] = useState<string | null>(() => {
     try {
-      return localStorage.getItem('leming_user_logo');
+      return localStorage.getItem('leming_user_logo') || '/logo.png';
     } catch {
-      return null;
+      return '/logo.png';
     }
   });
 
@@ -177,18 +177,18 @@ export default function App() {
               <div className="select-none">
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-base font-extrabold tracking-widest text-neutral-900 font-display">迎风聚智</span>
-                  <span className="text-[10px] text-red-650 font-mono font-bold tracking-tight">LEMING</span>
+                  <span className="text-[13px] text-red-650 font-mono font-bold tracking-tight">LEMING</span>
                 </div>
-                <div className="hidden sm:flex items-center gap-2 text-[9px] text-neutral-600 font-mono">
+                <div className="hidden sm:flex items-center gap-2 text-[13px] text-neutral-600 font-mono">
                   <span>中国 · 武汉</span>
                   <span>|</span>
-                  <span className="text-neutral-500 font-medium">自主研发 / 国内有数 / 安全可控</span>
+                  <span className="text-neutral-500 font-medium">军民融合 / 国内首创 / 自主可控</span>
                 </div>
               </div>
             </div>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-4 text-[11px] font-semibold text-neutral-800 font-display">
+            <nav className="hidden lg:flex items-center gap-4 text-[15px] font-semibold text-neutral-800 font-display">
               {SCENES_DATA.map((scene, idx) => (
                 <button
                   key={scene.id}
@@ -228,7 +228,7 @@ export default function App() {
                 exit={{ opacity: 0 }}
               >
                 <div className="space-y-4 py-8">
-                  <span className="text-[10px] text-neutral-500 font-mono tracking-widest block">展品索引 EXHIBIT DIRECTORY</span>
+                  <span className="text-[14px] text-neutral-500 font-mono tracking-widest block">展品索引 EXHIBIT DIRECTORY</span>
                   {SCENES_DATA.map((scene, idx) => (
                     <button
                       key={scene.id}
@@ -259,7 +259,7 @@ export default function App() {
 
           {/* Footer */}
           <footer className="fixed bottom-0 inset-x-0 z-35 px-6 py-4 md:px-12 md:py-5 flex items-center justify-between bg-linear-to-t from-white/90 via-white/50 to-transparent pointer-events-none">
-            <div className="flex items-center gap-1.5 font-mono text-[10.5px]">
+            <div className="flex items-center gap-1.5 font-mono text-[14px]">
               <span className="font-bold text-red-600">0{currentSlide + 1}</span>
               <span className="text-neutral-450">/</span>
               <span className="text-neutral-400">0{totalSlides}</span>
@@ -268,7 +268,7 @@ export default function App() {
               </span>
             </div>
 
-            <div className="hidden md:flex items-center gap-1.5 text-[10.5px] font-mono text-neutral-500 tracking-wider">
+            <div className="hidden md:flex items-center gap-1.5 text-[14px] font-mono text-neutral-500 tracking-wider">
               <span className="animate-bounce text-red-650 font-bold">↓</span>
               <span>滚动切换展品</span>
             </div>

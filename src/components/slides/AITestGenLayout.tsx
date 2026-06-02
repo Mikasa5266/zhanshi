@@ -42,7 +42,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         {exhibit.keywords.map((kw, i) => (
           <motion.span
             key={i}
-            className="text-[10px] md:text-[11px] font-medium px-2.5 py-1 rounded-full font-mono"
+            className="text-[14px] md:text-[15px] font-medium px-2.5 py-1 rounded-full font-mono"
             style={{ color: exhibit.accentColor, backgroundColor: `${exhibit.accentColor}10` }}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
             {[...SOURCE_CODE_LINES, ...SOURCE_CODE_LINES].map((line, i) => (
               <motion.div
                 key={i}
-                className="text-[8px] font-mono whitespace-nowrap text-right pr-3"
+                className="text-[12px] font-mono whitespace-nowrap text-right pr-3"
                 style={{ color: exhibit.accentColor, opacity: 0.35 + (i % 3) * 0.1 }}
               >
                 {line}
@@ -136,7 +136,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
             {[...OUTPUT_CODE_LINES, ...OUTPUT_CODE_LINES].map((line, i) => (
               <motion.div
                 key={i}
-                className="text-[8px] font-mono whitespace-nowrap pl-3"
+                className="text-[12px] font-mono whitespace-nowrap pl-3"
                 style={{ color: '#16a34a', opacity: 0.35 + (i % 3) * 0.1 }}
               >
                 {line}
@@ -153,7 +153,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.5 }}
       >
-        <span className="text-[10px] font-mono text-stone-500 shrink-0">需求输入</span>
+        <span className="text-[14px] font-mono text-stone-500 shrink-0">需求输入</span>
         {/* Animated flow line */}
         <div className="flex-1 mx-3 h-[2px] relative overflow-hidden rounded-full" style={{ backgroundColor: `${exhibit.accentColor}20` }}>
           <motion.div
@@ -164,7 +164,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
           />
         </div>
         <motion.span
-          className="text-[11px] font-bold font-mono shrink-0 px-2 py-0.5 rounded-md"
+          className="text-[15px] font-bold font-mono shrink-0 px-2 py-0.5 rounded-md"
           style={{ color: exhibit.accentColor, backgroundColor: `${exhibit.accentColor}12` }}
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -179,7 +179,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
             transition={{ duration: 2, repeat: Infinity, ease: 'linear', delay: 1 }}
           />
         </div>
-        <span className="text-[10px] font-mono text-green-600 shrink-0">用例输出</span>
+        <span className="text-[14px] font-mono text-green-600 shrink-0">用例输出</span>
       </motion.div>
 
       {/* Title at bottom */}
@@ -192,7 +192,7 @@ export default function AITestGenLayout({ exhibit, onVideoEnd }: SlideLayoutProp
         <h2 className="text-base md:text-xl font-extrabold text-neutral-900 tracking-tight font-display">
           {exhibit.name}
         </h2>
-        <span className="text-[9px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
+        <span className="text-[13px] font-mono text-stone-400 tracking-widest">{exhibit.englishTag}</span>
       </motion.div>
     </div>
   );

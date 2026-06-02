@@ -43,7 +43,7 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
               <h2 className="text-lg font-black text-neutral-900 tracking-tight leading-none">
                 {exhibit.name}
               </h2>
-              <span className="text-[9px] font-mono text-stone-400 tracking-[0.15em]">
+              <span className="text-[13px] font-mono text-stone-400 tracking-[0.15em]">
                 国内唯一 · 国家标准制定者
               </span>
             </div>
@@ -58,14 +58,14 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
           >
             {/* Table header */}
             <div className="flex items-center justify-between px-4 py-2 border-b border-stone-800">
-              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-wider">TPC-E Live Rankings</span>
+              <span className="text-[14px] font-mono text-stone-500 uppercase tracking-wider">TPC-E Live Rankings</span>
               <motion.div
                 className="flex items-center gap-1"
                 animate={{ opacity: [1, 0.4, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                <span className="text-[9px] font-mono text-red-400">LIVE</span>
+                <span className="text-[13px] font-mono text-red-400">LIVE</span>
               </motion.div>
             </div>
 
@@ -80,20 +80,20 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 + i * 0.12, duration: 0.4 }}
                 >
-                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-black ${i === 0 ? 'text-amber-400' : i === 1 ? 'text-stone-300' : i === 2 ? 'text-amber-600' : 'text-stone-500'}`}>
+                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[14px] font-black ${i === 0 ? 'text-amber-400' : i === 1 ? 'text-stone-300' : i === 2 ? 'text-amber-600' : 'text-stone-500'}`}>
                     {i === 0 ? <Crown className="w-3.5 h-3.5" /> : `#${db.rank}`}
                   </div>
-                  <span className="text-[11px] font-semibold text-stone-200 flex-1">{db.name}</span>
+                  <span className="text-[15px] font-semibold text-stone-200 flex-1">{db.name}</span>
                   <span className="text-xs font-mono font-bold" style={{ color: exhibit.accentColor }}>{db.score.toLocaleString()}</span>
-                  <span className="text-[9px] font-mono text-emerald-400">{db.delta}</span>
+                  <span className="text-[13px] font-mono text-emerald-400">{db.delta}</span>
                 </motion.div>
               ))}
             </div>
 
             {/* Bottom bar */}
             <div className="px-4 py-2 border-t border-stone-800 flex items-center justify-between">
-              <span className="text-[9px] font-mono text-stone-600">Powered by 迎风聚智 TPC Engine</span>
-              <span className="text-[9px] font-mono text-stone-600">v5.0</span>
+              <span className="text-[13px] font-mono text-stone-600">Powered by 迎风聚智 TPC Engine</span>
+              <span className="text-[13px] font-mono text-stone-600">v5.0</span>
             </div>
           </motion.div>
 
@@ -118,7 +118,7 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
                     style={{ backgroundColor: `${exhibit.accentColor}12`, color: exhibit.accentColor }}>
                     {IconComponent && <IconComponent className="w-2.5 h-2.5" />}
                   </div>
-                  <span className="text-[9px] font-bold text-neutral-800">{kw.label}</span>
+                  <span className="text-[13px] font-bold text-neutral-800">{kw.label}</span>
                 </motion.div>
               );
             })}
@@ -153,7 +153,7 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
           >
-            <div className="text-[9px] font-mono text-stone-400 mb-0.5">CURRENT SCORE</div>
+            <div className="text-[13px] font-mono text-stone-400 mb-0.5">CURRENT SCORE</div>
             <motion.div
               className="text-2xl font-black font-mono"
               style={{ color: exhibit.accentColor }}
@@ -163,7 +163,7 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             >
               12,847
             </motion.div>
-            <div className="text-[8px] font-mono text-emerald-400 mt-0.5">TPC-E tpmE</div>
+            <div className="text-[12px] font-mono text-emerald-400 mt-0.5">TPC-E tpmE</div>
           </motion.div>
 
           {/* Bottom: standard badge */}
@@ -174,11 +174,11 @@ export default function DBBenchmarkLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             transition={{ delay: 1 }}
           >
             <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
-              <span className="text-[9px] font-mono text-stone-300">《数据库基准测试通用技术规范》制定者</span>
+              <span className="text-[13px] font-mono text-stone-300">《数据库基准测试通用技术规范》制定者</span>
             </div>
             <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5 flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span className="text-[9px] font-mono text-stone-300">总装校准通过</span>
+              <span className="text-[13px] font-mono text-stone-300">总装校准通过</span>
             </div>
           </motion.div>
         </motion.div>

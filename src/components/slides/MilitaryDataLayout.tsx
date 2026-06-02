@@ -31,7 +31,7 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
               {exhibit.name}
             </motion.h2>
             <motion.p
-              className="text-[10px] text-stone-500 mt-0.5"
+              className="text-[14px] text-stone-500 mt-0.5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -51,13 +51,13 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + i * 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black text-white shrink-0"
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-[14px] font-black text-white shrink-0"
                     style={{ backgroundColor: stage.color }}>
                     {i + 1}
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold text-neutral-900 block">{stage.label}</span>
-                    <span className="text-[9px] text-stone-400">{stage.desc}</span>
+                    <span className="text-[15px] font-bold text-neutral-900 block">{stage.label}</span>
+                    <span className="text-[13px] text-stone-400">{stage.desc}</span>
                   </div>
                   {i === PIPELINE_STAGES.length - 1 && (
                     <motion.div
@@ -66,7 +66,7 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <span className="text-[8px] text-white font-bold">✓</span>
+                      <span className="text-[12px] text-white font-bold">✓</span>
                     </motion.div>
                   )}
                 </motion.div>
@@ -104,7 +104,7 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
                     style={{ color: exhibit.accentColor }}>
                     {IconComponent && <IconComponent className="w-3 h-3" />}
                   </div>
-                  <span className="text-[9px] font-semibold text-neutral-700">{kw.label}</span>
+                  <span className="text-[13px] font-semibold text-neutral-700">{kw.label}</span>
                 </div>
               );
             })}
@@ -167,7 +167,7 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
               transition={{ delay: 1 }}
             >
               <Layers className="w-3 h-3" style={{ color: exhibit.accentColor }} />
-              <span className="text-[9px] font-mono text-stone-300">多密级数据治理</span>
+              <span className="text-[13px] font-mono text-stone-300">多密级数据治理</span>
             </motion.div>
           </motion.div>
 
@@ -184,8 +184,8 @@ export default function MilitaryDataLayout({ exhibit, onVideoEnd }: SlideLayoutP
               { label: '适配', value: '飞腾/龙芯/鲲鹏' },
             ].map((stat, i) => (
               <div key={i} className="flex-1 bg-white/80 border border-stone-200/80 rounded-lg px-3 py-2 text-center">
-                <div className="text-[9px] text-stone-400">{stat.label}</div>
-                <div className="text-[10px] font-bold text-neutral-800 mt-0.5">{stat.value}</div>
+                <div className="text-[13px] text-stone-400">{stat.label}</div>
+                <div className="text-[14px] font-bold text-neutral-800 mt-0.5">{stat.value}</div>
               </div>
             ))}
           </motion.div>

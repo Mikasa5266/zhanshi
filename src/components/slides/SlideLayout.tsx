@@ -39,8 +39,8 @@ export function KeywordCard({ icon, label, sublabel, delay, accentColor }: {
         {IconComponent && <IconComponent className="w-4.5 h-4.5" />}
       </div>
       <div className="min-w-0">
-        <span className="text-xs font-bold text-neutral-900 block truncate">{label}</span>
-        <span className="text-[10px] text-stone-500 block truncate">{sublabel}</span>
+        <span className="text-sm font-bold text-neutral-900 block truncate">{label}</span>
+        <span className="text-[14px] text-stone-500 block truncate">{sublabel}</span>
       </div>
     </motion.div>
   );
@@ -62,7 +62,7 @@ export function SlideFooter({ name, subtitle, englishTag }: {
       <p className="text-xs md:text-sm text-stone-600 mt-1 font-sans">
         {subtitle}
       </p>
-      <span className="text-[9px] md:text-[10px] font-mono text-stone-400 tracking-widest mt-1 block">
+      <span className="text-[13px] md:text-[14px] font-mono text-stone-400 tracking-widest mt-1 block">
         {englishTag}
       </span>
     </motion.div>

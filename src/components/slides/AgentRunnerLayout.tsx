@@ -31,7 +31,7 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             </motion.div>
             <div>
               <h2 className="text-lg font-black text-neutral-900 tracking-tight">{exhibit.name}</h2>
-              <span className="text-[9px] font-mono text-stone-400 tracking-[0.12em]">多智能体协同 · 端到端自动化</span>
+              <span className="text-[13px] font-mono text-stone-400 tracking-[0.12em]">多智能体协同 · 端到端自动化</span>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             >
               <div className="text-center">
                 <Bot className="w-5 h-5 mx-auto" style={{ color: exhibit.accentColor }} />
-                <span className="text-[7px] font-bold block mt-0.5" style={{ color: exhibit.accentColor }}>协调中心</span>
+                <span className="text-[11px] font-bold block mt-0.5" style={{ color: exhibit.accentColor }}>协调中心</span>
               </div>
               {/* Pulse ring */}
               <motion.div
@@ -85,8 +85,8 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
                   >
                     {IconComponent && <IconComponent className="w-5 h-5" style={{ color: exhibit.accentColor }} />}
                   </motion.div>
-                  <span className="text-[9px] font-bold text-neutral-700 mt-1.5 whitespace-nowrap">{node.label}</span>
-                  {kw && <span className="text-[8px] text-stone-400">{kw.sublabel}</span>}
+                  <span className="text-[13px] font-bold text-neutral-700 mt-1.5 whitespace-nowrap">{node.label}</span>
+                  {kw && <span className="text-[12px] text-stone-400">{kw.sublabel}</span>}
                 </motion.div>
               );
             })}
@@ -122,12 +122,12 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
-            <div className="text-[8px] font-mono text-stone-400 mb-1">PLATFORM STACK</div>
+            <div className="text-[12px] font-mono text-stone-400 mb-1">PLATFORM STACK</div>
             <div className="flex flex-col gap-0.5">
               {['统一门户与协同层', '核心能力服务层', '工具与智能体适配层', '国产基础资源层'].map((layer, i) => (
                 <div
                   key={i}
-                  className="text-[8px] font-mono px-1.5 py-0.5 rounded text-white/80"
+                  className="text-[12px] font-mono px-1.5 py-0.5 rounded text-white/80"
                   style={{ backgroundColor: `${exhibit.accentColor}${30 + i * 12}` }}
                 >
                   {layer}
@@ -144,7 +144,7 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
             transition={{ delay: 1 }}
           >
             <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1.5">
-              <span className="text-[9px] font-mono text-stone-300">GJB438C 合规文档自动生成</span>
+              <span className="text-[13px] font-mono text-stone-300">GJB438C 合规文档自动生成</span>
             </div>
             <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1.5 flex items-center gap-1.5">
               <motion.div
@@ -153,7 +153,7 @@ export default function AgentRunnerLayout({ exhibit, onVideoEnd }: SlideLayoutPr
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               />
-              <span className="text-[9px] font-mono text-stone-300">4 Agents Active</span>
+              <span className="text-[13px] font-mono text-stone-300">4 Agents Active</span>
             </div>
           </motion.div>
         </motion.div>

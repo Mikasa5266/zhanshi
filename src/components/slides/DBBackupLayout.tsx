@@ -40,7 +40,7 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
             </motion.div>
             <div>
               <h2 className="text-lg font-black text-neutral-900 tracking-tight">{exhibit.name}</h2>
-              <span className="text-[9px] font-mono text-stone-400 tracking-[0.12em]">{exhibit.englishTag}</span>
+              <span className="text-[13px] font-mono text-stone-400 tracking-[0.12em]">{exhibit.englishTag}</span>
             </div>
           </div>
           <motion.div
@@ -50,7 +50,7 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
             transition={{ delay: 0.5 }}
           >
             <Undo2 className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-[10px] font-bold text-amber-700">秒级恢复</span>
+            <span className="text-[14px] font-bold text-amber-700">秒级恢复</span>
           </motion.div>
         </motion.div>
 
@@ -92,8 +92,8 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
                   className={`rounded-full border-2 bg-white ${point.size === 'lg' ? 'w-4 h-4' : 'w-2.5 h-2.5'}`}
                   style={{ borderColor: exhibit.accentColor }}
                 />
-                <span className="text-[8px] font-mono text-stone-400 mt-1">{point.time}</span>
-                <span className="text-[8px] font-semibold text-stone-600">{point.label}</span>
+                <span className="text-[12px] font-mono text-stone-400 mt-1">{point.time}</span>
+                <span className="text-[12px] font-semibold text-stone-600">{point.label}</span>
               </motion.div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
             transition={{ delay: 1.5 }}
           >
             <motion.div
-              className="text-[8px] font-mono px-1.5 py-0.5 rounded text-white"
+              className="text-[12px] font-mono px-1.5 py-0.5 rounded text-white"
               style={{ backgroundColor: exhibit.accentColor }}
               animate={{ y: [0, -2, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -146,10 +146,10 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <div className="text-[8px] font-mono text-stone-400 mb-1">资源占用</div>
+              <div className="text-[12px] font-mono text-stone-400 mb-1">资源占用</div>
               <div className="flex items-center gap-3">
                 <div>
-                  <div className="text-[10px] font-bold text-emerald-400">CPU 2.3%</div>
+                  <div className="text-[14px] font-bold text-emerald-400">CPU 2.3%</div>
                   <div className="w-16 h-1 bg-stone-700 rounded-full mt-0.5">
                     <motion.div
                       className="h-full bg-emerald-400 rounded-full"
@@ -161,7 +161,7 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-emerald-400">MEM 48MB</div>
+                  <div className="text-[14px] font-bold text-emerald-400">MEM 48MB</div>
                   <div className="w-16 h-1 bg-stone-700 rounded-full mt-0.5">
                     <motion.div
                       className="h-full bg-emerald-400 rounded-full"
@@ -199,8 +199,8 @@ export default function DBBackupLayout({ exhibit, onVideoEnd }: SlideLayoutProps
                     {IconComponent && <IconComponent className="w-4 h-4" />}
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold text-neutral-900 block">{kw.label}</span>
-                    <span className="text-[9px] text-stone-400">{kw.sublabel}</span>
+                    <span className="text-[15px] font-bold text-neutral-900 block">{kw.label}</span>
+                    <span className="text-[13px] text-stone-400">{kw.sublabel}</span>
                   </div>
                 </motion.div>
               );
