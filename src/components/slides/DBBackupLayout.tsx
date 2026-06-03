@@ -25,10 +25,10 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
         transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="relative flex flex-col w-full max-w-6xl h-[72vh] max-h-[540px] px-4">
+      <div className="relative flex flex-col w-full max-w-6xl h-[78vh] max-h-[600px] px-4">
         {/* Header row */}
         <motion.div
-          className="flex items-center justify-between mb-3"
+          className="flex items-center justify-between mb-2"
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -46,28 +46,28 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
             </div>
           </div>
           <motion.div
-            className="flex items-center gap-2 bg-amber-50 border border-amber-200/60 rounded-full px-3 py-1.5"
+            className="flex items-center gap-2 bg-red-50 border border-red-200/60 rounded-full px-3 py-1.5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Undo2 className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-[14px] font-bold text-amber-700">秒级恢复</span>
+            <Undo2 className="w-3.5 h-3.5 text-red-600" />
+            <span className="text-[14px] font-bold text-red-700">秒级恢复</span>
           </motion.div>
         </motion.div>
 
         {/* Timeline visualization */}
         <motion.div
-          className="relative bg-stone-50 border border-stone-200/80 rounded-2xl px-5 py-4 mb-3"
+          className="relative bg-stone-50 border border-stone-200/80 rounded-2xl px-5 py-3 mb-2"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           {/* Timeline track */}
-          <div className="relative flex items-start justify-between pt-5 pb-1">
+          <div className="relative flex items-start justify-between pt-4 pb-1">
             {/* Background line */}
             <motion.div
-              className="absolute top-5 left-0 right-0 h-0.5 rounded-full"
+              className="absolute top-4 left-0 right-0 h-0.5 rounded-full"
               style={{ backgroundColor: `${exhibit.accentColor}20` }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -75,7 +75,7 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
             />
             {/* Progress fill */}
             <motion.div
-              className="absolute top-5 left-0 h-0.5 rounded-full"
+              className="absolute top-4 left-0 h-0.5 rounded-full"
               style={{ backgroundColor: exhibit.accentColor, width: '70%' }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -143,10 +143,10 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
               <div className="text-[12px] font-mono text-stone-400 mb-1">资源占用</div>
               <div className="flex items-center gap-3">
                 <div>
-                  <div className="text-[14px] font-bold text-emerald-400">CPU 2.3%</div>
+                  <div className="text-[14px] font-bold text-red-300">CPU 2.3%</div>
                   <div className="w-16 h-1 bg-stone-700 rounded-full mt-0.5">
                     <motion.div
-                      className="h-full bg-emerald-400 rounded-full"
+                      className="h-full bg-red-400 rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: '2.3%' }}
                       transition={{ delay: 1.3, duration: 0.5 }}
@@ -155,10 +155,10 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
                   </div>
                 </div>
                 <div>
-                  <div className="text-[14px] font-bold text-emerald-400">MEM 48MB</div>
+                  <div className="text-[14px] font-bold text-red-300">MEM 48MB</div>
                   <div className="w-16 h-1 bg-stone-700 rounded-full mt-0.5">
                     <motion.div
-                      className="h-full bg-emerald-400 rounded-full"
+                      className="h-full bg-red-400 rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: '6%' }}
                       transition={{ delay: 1.4, duration: 0.5 }}

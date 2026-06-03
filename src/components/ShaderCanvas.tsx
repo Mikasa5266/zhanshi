@@ -118,48 +118,54 @@ export default function ShaderCanvas({ activeSlide }: ShaderCanvasProps) {
         vec3 baseColor = vec3(0.97, 0.97, 0.96);
         vec3 accentColor = vec3(0.85, 0.85, 0.85);
 
-        // Dynamically compute visual mood based on the interpolated sliding progression (7 slides)
+        // Red-white theme: progressive warm tones across slides
         if (activeSlide < 0.5) {
-          // Slide 0: Soft Crimson Rose (company intro)
+          // Slide 0: Warm red glow (company intro)
           float stage = activeSlide / 0.5;
           baseColor = mix(vec3(0.98, 0.97, 0.96), vec3(0.98, 0.95, 0.94), stage);
           accentColor = vec3(0.95, 0.72, 0.72);
         }
         else if (activeSlide < 1.5) {
-          // Slide 1: Soft Violet (auto test gen)
+          // Slide 1: Rose-red (AI test gen)
           float stage = (activeSlide - 0.5);
-          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.96, 0.95, 0.98), stage);
-          accentColor = vec3(0.82, 0.72, 0.95);
+          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.98, 0.94, 0.95), stage);
+          accentColor = vec3(0.92, 0.68, 0.75);
         }
         else if (activeSlide < 2.5) {
-          // Slide 2: Soft Professional Steel (WebRunner/GUIRunner)
+          // Slide 2: Bright red (WebRunner)
           float stage = (activeSlide - 1.5);
-          baseColor = mix(vec3(0.96, 0.95, 0.98), vec3(0.98, 0.95, 0.94), stage);
+          baseColor = mix(vec3(0.98, 0.94, 0.95), vec3(0.98, 0.95, 0.94), stage);
           accentColor = vec3(0.95, 0.70, 0.70);
         }
         else if (activeSlide < 3.5) {
-          // Slide 3: Soft Cyber Teal (DB benchmark)
+          // Slide 3: Deep red (DB benchmark)
           float stage = (activeSlide - 2.5);
-          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.94, 0.97, 0.98), stage);
-          accentColor = vec3(0.68, 0.88, 0.92);
+          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.97, 0.94, 0.93), stage);
+          accentColor = vec3(0.88, 0.62, 0.62);
         }
         else if (activeSlide < 4.5) {
-          // Slide 4: Soft Emerald (military data)
+          // Slide 4: Burgundy warmth (military data)
           float stage = (activeSlide - 3.5);
-          baseColor = mix(vec3(0.94, 0.97, 0.98), vec3(0.94, 0.98, 0.95), stage);
-          accentColor = vec3(0.65, 0.90, 0.78);
+          baseColor = mix(vec3(0.97, 0.94, 0.93), vec3(0.96, 0.93, 0.93), stage);
+          accentColor = vec3(0.82, 0.58, 0.58);
         }
         else if (activeSlide < 5.5) {
-          // Slide 5: Soft Amber (DB backup)
+          // Slide 5: Warm medium red (DB backup)
           float stage = (activeSlide - 4.5);
-          baseColor = mix(vec3(0.94, 0.98, 0.95), vec3(0.98, 0.97, 0.93), stage);
-          accentColor = vec3(0.92, 0.84, 0.65);
+          baseColor = mix(vec3(0.96, 0.93, 0.93), vec3(0.98, 0.95, 0.94), stage);
+          accentColor = vec3(0.90, 0.65, 0.65);
+        }
+        else if (activeSlide < 6.5) {
+          // Slide 6: Rose-crimson (AgentRunner)
+          float stage = (activeSlide - 5.5);
+          baseColor = mix(vec3(0.98, 0.95, 0.94), vec3(0.98, 0.94, 0.95), stage);
+          accentColor = vec3(0.93, 0.68, 0.72);
         }
         else {
-          // Slide 6: Soft Cyan (AgentRunner)
-          float stage = min(1.0, (activeSlide - 5.5));
-          baseColor = mix(vec3(0.98, 0.97, 0.93), vec3(0.94, 0.97, 0.98), stage);
-          accentColor = vec3(0.68, 0.88, 0.92);
+          // Slide 7: Deep rose (Partners)
+          float stage = min(1.0, (activeSlide - 6.5));
+          baseColor = mix(vec3(0.98, 0.94, 0.95), vec3(0.97, 0.94, 0.94), stage);
+          accentColor = vec3(0.88, 0.60, 0.68);
         }
 
         // Compute fluid noise density
@@ -313,11 +319,13 @@ export default function ShaderCanvas({ activeSlide }: ShaderCanvasProps) {
     // Beautiful pure CSS animated gradient representation on WebGL failure (safe fallback)
     const backgroundGradients = [
       'bg-radial from-red-50 via-neutral-50 to-neutral-100',
-      'bg-radial from-rose-50 via-zinc-50 to-zinc-100',
-      'bg-radial from-cyan-50 via-slate-50 to-slate-100',
+      'bg-radial from-rose-50 via-neutral-50 to-neutral-100',
       'bg-radial from-red-50 via-stone-50 to-stone-100',
-      'bg-radial from-amber-50 via-zinc-50 to-zinc-100',
-      'bg-radial from-fuchsia-50 via-neutral-50 to-neutral-100',
+      'bg-radial from-red-100 via-neutral-50 to-neutral-100',
+      'bg-radial from-rose-100 via-stone-50 to-stone-100',
+      'bg-radial from-red-50 via-neutral-50 to-neutral-100',
+      'bg-radial from-rose-50 via-neutral-50 to-neutral-100',
+      'bg-radial from-red-100 via-stone-50 to-stone-100',
     ];
 
     return (

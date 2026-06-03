@@ -82,12 +82,12 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 + i * 0.12, duration: 0.4 }}
                 >
-                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[14px] font-black ${i === 0 ? 'text-amber-400' : i === 1 ? 'text-stone-300' : i === 2 ? 'text-amber-600' : 'text-stone-500'}`}>
+                  <div className={`w-5 h-5 rounded flex items-center justify-center text-[14px] font-black ${i === 0 ? 'text-red-400' : i === 1 ? 'text-stone-300' : i === 2 ? 'text-red-700' : 'text-stone-500'}`}>
                     {i === 0 ? <Crown className="w-3.5 h-3.5" /> : `#${db.rank}`}
                   </div>
                   <span className="text-[15px] font-semibold text-stone-200 flex-1">{db.name}</span>
                   <span className="text-xs font-mono font-bold" style={{ color: exhibit.accentColor }}>{db.score.toLocaleString()}</span>
-                  <span className="text-[13px] font-mono text-emerald-400">{db.delta}</span>
+                  <span className="text-[13px] font-mono text-red-300">{db.delta}</span>
                 </motion.div>
               ))}
             </div>
@@ -157,7 +157,7 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
             >
               12,847
             </motion.div>
-            <div className="text-[12px] font-mono text-emerald-400 mt-0.5">TPC-E tpmE</div>
+            <div className="text-[12px] font-mono text-red-300 mt-0.5">TPC-E tpmE</div>
           </motion.div>
 
           {/* Bottom: standard badge */}
@@ -171,7 +171,7 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
               <span className="text-[13px] font-mono text-stone-300">《数据库基准测试通用技术规范》制定者</span>
             </div>
             <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5 flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
               <span className="text-[13px] font-mono text-stone-300">总装校准通过</span>
             </div>
           </motion.div>

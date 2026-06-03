@@ -18,8 +18,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "AUTO TEST GENERATION",
     tagline: "智能化测试用例设计与生成平台",
     description: "基于AI大模型的测试用例自动生成工具，从需求到用例全链路智能化。",
-    accentColor: "#7c3aed",
-    themeColor: "from-violet-950 via-neutral-950 to-neutral-950"
+    accentColor: "#be123c",
+    themeColor: "from-rose-950 via-neutral-950 to-neutral-950"
   },
   {
     id: 2,
@@ -28,8 +28,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "PERFORMANCE & FUNCTIONAL TESTING",
     tagline: "系统与软件性能测试 + 功能测试全覆盖",
     description: "WebRunner性能压测引擎与GUIRunner功能自动化测试工具，国产替代LoadRunner。",
-    accentColor: "#e61919",
-    themeColor: "from-neutral-900 via-zinc-950 to-neutral-950"
+    accentColor: "#dc2626",
+    themeColor: "from-red-950 via-neutral-950 to-neutral-950"
   },
   {
     id: 3,
@@ -38,8 +38,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "DATABASE BENCHMARK",
     tagline: "国内唯一自主数据库基准测试工具制造商",
     description: "标准化TPC-E/TPC-DS基准测试，适配国产数据库生态，一键跑分出报告。",
-    accentColor: "#0891b2",
-    themeColor: "from-cyan-950 via-neutral-950 to-neutral-950"
+    accentColor: "#991b1b",
+    themeColor: "from-red-950 via-stone-950 to-neutral-950"
   },
   {
     id: 4,
@@ -48,8 +48,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "MILITARY DATA MANAGEMENT",
     tagline: "面向军工领域的高安全数据集管理系统",
     description: "支持多密级数据分类管理、权限管控与安全审计，满足军工数据治理需求。",
-    accentColor: "#065f46",
-    themeColor: "from-emerald-950 via-neutral-950 to-neutral-950"
+    accentColor: "#7f1d1d",
+    themeColor: "from-rose-950 via-stone-950 to-neutral-950"
   },
   {
     id: 5,
@@ -58,8 +58,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "LIGHTWEIGHT DB BACKUP",
     tagline: "低资源占用的数据库备份与恢复工具",
     description: "轻量化设计，支持增量备份与秒级恢复，跨平台适配国产数据库。",
-    accentColor: "#b45309",
-    themeColor: "from-amber-950 via-neutral-950 to-neutral-950"
+    accentColor: "#b91c1c",
+    themeColor: "from-red-900 via-neutral-950 to-neutral-950"
   },
   {
     id: 6,
@@ -68,8 +68,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "AI AGENT RUNNER",
     tagline: "大模型驱动的智能测试自动化平台",
     description: "以AI Agent为核心，实现测试用例录制、脚本生成、执行与GJB文档自动输出。",
-    accentColor: "#06b6d4",
-    themeColor: "from-slate-950 via-zinc-950 to-neutral-950"
+    accentColor: "#e11d48",
+    themeColor: "from-rose-950 via-neutral-950 to-neutral-950"
   },
   {
     id: 7,
@@ -78,8 +78,8 @@ export const SCENES_DATA: SlideData[] = [
     englishTitle: "PARTNERS & ECOSYSTEM",
     tagline: "覆盖军工科研、检测认证、头部企业全生态",
     description: "与30+军工科研院所、国家级检测机构及头部ICT企业建立深度合作。",
-    accentColor: "#1d4ed8",
-    themeColor: "from-blue-950 via-neutral-950 to-neutral-950"
+    accentColor: "#9f1239",
+    themeColor: "from-rose-950 via-stone-950 to-neutral-950"
   }
 ];
 
@@ -112,13 +112,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: '测试用例自动生成工具',
     subtitle: '从需求到用例，AI全链路智能生成',
     englishTag: 'AUTO TEST GENERATION',
-    accentColor: '#7c3aed',
-    themeColor: 'from-violet-950 via-neutral-950 to-neutral-950',
+    accentColor: '#be123c',
+    themeColor: 'from-rose-950 via-neutral-950 to-neutral-950',
     keywords: [
       { icon: 'Sparkles', label: 'AI驱动', sublabel: '大模型智能解析' },
       { icon: 'Code2', label: '零代码', sublabel: '无需编程基础' },
       { icon: 'ListChecks', label: '需求全覆盖', sublabel: '自动追溯矩阵' },
       { icon: 'FileCheck', label: 'GJB合规', sublabel: '军标文档输出' },
+    ],
+    description: '基于大语言模型的测试用例自动生成平台，输入需求文档即可自动解析测试要素，生成标准化测试用例集。支持自然语言需求解析、边界值分析、等价类划分等多种用例设计方法，输出符合GJB438C军标的规范文档。',
+    highlights: [
+      { icon: 'FileText', title: '需求智能解析', desc: '上传需求文档，AI自动提取测试要素和约束条件' },
+      { icon: 'GitBranch', title: '多策略用例设计', desc: '边界值、等价类、因果图等方法自动组合生成' },
+      { icon: 'CheckCircle', title: '需求追溯矩阵', desc: '每条用例自动关联需求项，覆盖率可视化' },
+      { icon: 'FileOutput', title: '军标文档导出', desc: '一键输出GJB438C格式测试说明和测试报告' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 测试用例自动生成',
@@ -129,13 +136,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: 'WebRunner & GUIRunner',
     subtitle: '系统性能压测 + 功能自动化验证',
     englishTag: 'PERFORMANCE & FUNCTIONAL',
-    accentColor: '#e61919',
-    themeColor: 'from-neutral-900 via-zinc-950 to-neutral-950',
+    accentColor: '#dc2626',
+    themeColor: 'from-red-950 via-neutral-950 to-neutral-950',
     keywords: [
       { icon: 'Zap', label: '超高并发', sublabel: '万级vUser压测' },
       { icon: 'Timer', label: '微秒响应', sublabel: 'P99延迟分析' },
       { icon: 'Replace', label: '国产替代', sublabel: '替换LoadRunner' },
       { icon: 'Monitor', label: '全界面覆盖', sublabel: 'GUI自动录制回放' },
+    ],
+    description: 'WebRunner是自主研发的系统与软件性能测试工具，支持HTTP/HTTPS/TCP/UDP等协议，可模拟万级并发用户进行压力测试。GUIRunner是配套的功能测试工具，支持GUI操作录制回放与断言验证。两者结合实现性能+功能全覆盖，完全国产替代LoadRunner。',
+    highlights: [
+      { icon: 'Users', title: '万级并发模拟', desc: '单机支持10000+ vUser并发，分布式集群可线性扩展' },
+      { icon: 'BarChart3', title: '实时性能监控', desc: 'TPS、响应时间、错误率等指标实时图表展示' },
+      { icon: 'MonitorPlay', title: 'GUI录制回放', desc: '支持桌面应用与Web应用操作录制，自动生成测试脚本' },
+      { icon: 'FileBarChart', title: '专业测试报告', desc: '自动生成符合国标的性能测试分析报告' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 WebRunner',
@@ -146,13 +160,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: '数据库基准测试 TPC-E/TPC-DS',
     subtitle: '国内唯一自主基准测试工具制造商',
     englishTag: 'DATABASE BENCHMARK',
-    accentColor: '#0891b2',
-    themeColor: 'from-cyan-950 via-neutral-950 to-neutral-950',
+    accentColor: '#991b1b',
+    themeColor: 'from-red-950 via-stone-950 to-neutral-950',
     keywords: [
       { icon: 'BarChart3', label: '标准化跑分', sublabel: 'TPC国际规范' },
       { icon: 'Database', label: '多库适配', sublabel: '达梦/OceanBase/GaussDB' },
       { icon: 'Play', label: '一键部署', sublabel: '自动化测试流程' },
       { icon: 'Award', label: '权威认证', sublabel: '国家标准制定者' },
+    ],
+    description: '国内唯一具备TPC-E和TPC-DS基准测试能力的自主工具制造商，参与制定《数据库基准测试通用技术规范》国家标准。支持达梦、OceanBase、GaussDB等主流国产数据库一键部署测试并生成权威报告。',
+    highlights: [
+      { icon: 'Trophy', title: 'TPC国际标准', desc: '完整实现TPC-E联机交易和TPC-DS决策支持两套基准' },
+      { icon: 'Wrench', title: '一键自动化', desc: '环境部署、数据加载、执行测试、报告生成全自动' },
+      { icon: 'Database', title: '国产数据库全适配', desc: '达梦DM8、OceanBase、GaussDB、TiDB等全覆盖' },
+      { icon: 'ScrollText', title: '国标制定者', desc: '参与制定数据库基准测试国家标准，总装校准通过' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 数据库基准测试',
@@ -163,13 +184,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: '军用数据集管理平台',
     subtitle: '面向军工领域的高安全数据集管理系统',
     englishTag: 'MILITARY DATA PLATFORM',
-    accentColor: '#065f46',
-    themeColor: 'from-emerald-950 via-neutral-950 to-neutral-950',
+    accentColor: '#7f1d1d',
+    themeColor: 'from-rose-950 via-stone-950 to-neutral-950',
     keywords: [
       { icon: 'ShieldCheck', label: '军工级安全', sublabel: '等保三级+' },
       { icon: 'Layers', label: '数据治理', sublabel: '全生命周期管理' },
       { icon: 'Lock', label: '多密级管控', sublabel: '分级权限体系' },
       { icon: 'Cpu', label: '自主可控', sublabel: '国产芯片适配' },
+    ],
+    description: '面向军工科研领域的高安全数据集管理系统，实现从原始数据采集、统一分类标注、质量评估到AI训练就绪的全链路数据炼制。支持多密级数据分级管控，满足等保三级+安全要求，全面适配飞腾、龙芯、鲲鹏等国产芯片平台。',
+    highlights: [
+      { icon: 'Layers', title: '全链路数据炼制', desc: '日志/文本/图像/视频多源数据统一采集与加工' },
+      { icon: 'ShieldCheck', title: '多密级安全管控', desc: '分级权限体系+审计追溯，满足军工保密要求' },
+      { icon: 'BrainCircuit', title: 'AI就绪数据集', desc: '输出高质量标注数据，直接用于模型训练' },
+      { icon: 'Cpu', title: '信创全栈适配', desc: '适配飞腾/龙芯/鲲鹏芯片与中标麒麟/统信OS' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 军用数据集管理',
@@ -180,13 +208,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: '轻量化数据库备份工具',
     subtitle: '低资源占用，增量备份与秒级恢复',
     englishTag: 'LIGHTWEIGHT BACKUP',
-    accentColor: '#b45309',
-    themeColor: 'from-amber-950 via-neutral-950 to-neutral-950',
+    accentColor: '#b91c1c',
+    themeColor: 'from-red-900 via-neutral-950 to-neutral-950',
     keywords: [
       { icon: 'HardDriveDownload', label: '增量备份', sublabel: '差异化存储' },
       { icon: 'RotateCcw', label: '秒级恢复', sublabel: '快速回滚' },
       { icon: 'Gauge', label: '低资源占用', sublabel: '轻量化设计' },
       { icon: 'Laptop', label: '跨平台', sublabel: '信创全适配' },
+    ],
+    description: '轻量化数据库备份与恢复工具，采用增量备份+差异化存储技术，CPU占用低于3%、内存仅需48MB即可完成企业级数据库的实时备份。支持任意时间点的秒级恢复，适配达梦、人大金仓、南大通用等国产数据库。',
+    highlights: [
+      { icon: 'HardDriveDownload', title: '智能增量备份', desc: '仅传输变化数据块，备份窗口缩短90%' },
+      { icon: 'RotateCcw', title: '任意点位恢复', desc: '支持精确到秒的时间点恢复(PITR)' },
+      { icon: 'Gauge', title: '极低资源占用', desc: 'CPU<3%、内存48MB，生产库零影响' },
+      { icon: 'Database', title: '国产数据库适配', desc: '达梦/金仓/南大通用/OpenGauss全支持' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 数据库备份',
@@ -197,13 +232,20 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: 'AgentRunner 智体平台',
     subtitle: '大模型驱动的智能测试自动化平台',
     englishTag: 'AI AGENT RUNNER',
-    accentColor: '#06b6d4',
-    themeColor: 'from-slate-950 via-zinc-950 to-neutral-950',
+    accentColor: '#e11d48',
+    themeColor: 'from-rose-950 via-neutral-950 to-neutral-950',
     keywords: [
       { icon: 'Bot', label: 'AI智体', sublabel: '多Agent协同' },
       { icon: 'TestTube2', label: '自动化测试', sublabel: '全流程无人值守' },
       { icon: 'FileText', label: '文档生成', sublabel: 'GJB438C合规' },
       { icon: 'Eye', label: '多模态', sublabel: '视觉+语义理解' },
+    ],
+    description: '以AI Agent为核心的智能测试自动化平台，多智能体协同完成测试设计、脚本生成、执行调度和文档输出全流程。集成视觉理解和语义分析能力，支持GJB438C合规文档自动生成，实现端到端无人值守测试。',
+    highlights: [
+      { icon: 'Bot', title: '多智能体协同', desc: '测试设计、脚本生成、执行调度、文档输出四Agent联动' },
+      { icon: 'Eye', title: '多模态理解', desc: '视觉识别+语义分析，理解被测系统界面与行为' },
+      { icon: 'FileText', title: 'GJB438C文档', desc: '自动生成符合军标的测试说明、测试报告等文档' },
+      { icon: 'Workflow', title: '端到端自动化', desc: '从需求输入到报告输出全链路无人值守' },
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 AgentRunner',
@@ -214,8 +256,8 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     name: '合作伙伴',
     subtitle: '覆盖军工科研、检测认证、头部企业全生态',
     englishTag: 'PARTNERS & ECOSYSTEM',
-    accentColor: '#1d4ed8',
-    themeColor: 'from-blue-950 via-neutral-950 to-neutral-950',
+    accentColor: '#9f1239',
+    themeColor: 'from-rose-950 via-stone-950 to-neutral-950',
     keywords: [
       { icon: 'Shield', label: '军工科研', sublabel: '8+研究所' },
       { icon: 'BadgeCheck', label: '检测机构', sublabel: '13+机构' },

@@ -5,7 +5,9 @@ import {
   Zap, Timer, Replace, Monitor, BarChart3, Database, Play, Award,
   ShieldCheck, Layers, Lock, Cpu, HardDriveDownload, RotateCcw, Gauge,
   Laptop, Bot, TestTube2, FileText, Eye,
-  Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck
+  Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck,
+  GitBranch, CheckCircle, FileOutput, Users, MonitorPlay, FileBarChart,
+  Trophy, Wrench, ScrollText, Workflow
 } from 'lucide-react';
 import { ExhibitItem } from '../../types';
 
@@ -14,7 +16,9 @@ export const ICON_MAP: Record<string, React.ComponentType<{ className?: string }
   Zap, Timer, Replace, Monitor, BarChart3, Database, Play, Award,
   ShieldCheck, Layers, Lock, Cpu, HardDriveDownload, RotateCcw, Gauge,
   Laptop, Bot, TestTube2, FileText, Eye,
-  Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck
+  Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck,
+  GitBranch, CheckCircle, FileOutput, Users, MonitorPlay, FileBarChart,
+  Trophy, Wrench, ScrollText, Workflow
 };
 
 export interface SlideLayoutProps {

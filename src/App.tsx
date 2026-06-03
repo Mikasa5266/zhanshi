@@ -17,11 +17,22 @@ import {
 
 const AUTOPLAY_INTERVAL = 8000;
 
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const autoplay = params.get('autoplay');
+  const slide = params.get('slide');
+  return {
+    autoplay: autoplay === null ? true : autoplay !== '0' && autoplay !== 'false',
+    fixedSlide: slide !== null ? Math.max(0, Math.min(parseInt(slide, 10) - 1, SCENES_DATA.length - 1)) : null,
+  };
+}
+
 export default function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const urlParams = useRef(getUrlParams());
+  const [currentSlide, setCurrentSlide] = useState(urlParams.current.fixedSlide ?? 0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(urlParams.current.autoplay && urlParams.current.fixedSlide === null);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   const [userLogo, setUserLogo] = useState<string | null>(() => {
@@ -46,8 +57,6 @@ export default function App() {
   };
 
   const lastTransitionTime = useRef(0);
-  const touchStartY = useRef(0);
-  const touchStartX = useRef(0);
   const autoPlayTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const totalSlides = SCENES_DATA.length;
@@ -92,18 +101,6 @@ export default function App() {
     resetAutoPlay();
   }, [resetAutoPlay]);
 
-  const handleWheel = (e: React.WheelEvent) => {
-    const now = Date.now();
-    if (now - lastTransitionTime.current < 850) return;
-
-    if (e.deltaY > 15) {
-      handleManualNav(nextSlide);
-      lastTransitionTime.current = now;
-    } else if (e.deltaY < -15) {
-      handleManualNav(prevSlide);
-      lastTransitionTime.current = now;
-    }
-  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -123,28 +120,6 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleManualNav, nextSlide, prevSlide]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const now = Date.now();
-    if (now - lastTransitionTime.current < 850) return;
-
-    const touchEndY = e.changedTouches[0].clientY;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diffY = touchStartY.current - touchEndY;
-    const diffX = touchStartX.current - touchEndX;
-
-    if (Math.abs(diffY) > 40 && Math.abs(diffY) > Math.abs(diffX)) {
-      handleManualNav(diffY > 0 ? nextSlide : prevSlide);
-      lastTransitionTime.current = now;
-    } else if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-      handleManualNav(diffX > 0 ? nextSlide : prevSlide);
-      lastTransitionTime.current = now;
-    }
-  };
 
   return (
     <div className="w-full h-full relative overflow-hidden select-none" id="app-root-container">
@@ -153,9 +128,6 @@ export default function App() {
       {isLoaded && (
         <div
           className="w-full h-full relative z-15 flex flex-col justify-between"
-          onWheel={handleWheel}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
           id="immersive-showroom"
         >
           <ShaderCanvas activeSlide={currentSlide} />
@@ -251,7 +223,7 @@ export default function App() {
           </AnimatePresence>
 
           {/* Main content */}
-          <main className="flex-1 w-full relative z-10 flex items-center justify-center">
+          <main className="flex-1 w-full relative z-10 overflow-y-auto">
             <ScenicSlides activeSlide={currentSlide} onPlayVideo={handlePlayVideo} />
           </main>
 
@@ -266,10 +238,6 @@ export default function App() {
               </span>
             </div>
 
-            <div className="hidden md:flex items-center gap-1.5 text-[14px] font-mono text-neutral-500 tracking-wider">
-              <span className="animate-bounce text-red-650 font-bold">↓</span>
-              <span>滚动切换展品</span>
-            </div>
 
             <div className="flex items-center gap-4 pointer-events-auto">
               {/* Autoplay toggle */}

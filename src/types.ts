@@ -21,6 +21,12 @@ export interface CoreCapability {
   label: string;
 }
 
+export interface ExhibitHighlight {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
 export interface ExhibitItem {
   id: string;
   name: string;
@@ -34,6 +40,8 @@ export interface ExhibitItem {
   screenshots?: string[];
   coreCapabilities?: CoreCapability[];
   certifications?: string[];
+  description?: string;
+  highlights?: ExhibitHighlight[];
 }
 
 export interface CacheLog {

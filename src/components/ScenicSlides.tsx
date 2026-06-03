@@ -17,11 +17,11 @@ export default function ScenicSlides({ activeSlide, onVideoEnd, onPlayVideo }: S
   if (!LayoutComponent) return null;
 
   return (
-    <div className="relative w-full h-full overflow-hidden flex items-center justify-center" id="scenic-canvas-content">
+    <div className="relative w-full min-h-full overflow-y-auto" id="scenic-canvas-content">
       <AnimatePresence mode="wait">
         <motion.div
           key={`slide-${activeSlide}`}
-          className="w-full h-full flex flex-col items-center justify-center px-4 md:px-8"
+          className="w-full min-h-full flex flex-col items-center justify-center px-4 md:px-8 py-20 md:py-24"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}

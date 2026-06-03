@@ -1,20 +1,54 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 迎风聚智数字展厅
 
-# Run and deploy your AI Studio app
+基于 React + TypeScript + Vite + Tailwind CSS + Framer Motion 构建的沉浸式数字展厅。
 
-This contains everything you need to run your app locally.
+## 快速开始
 
-View your app in AI Studio: https://ai.studio/apps/d87ccea6-bdd4-4256-b19d-1ce829f05223
+```bash
+npm install
+npm run dev
+```
 
-## Run Locally
+## 部署配置
 
-**Prerequisites:**  Node.js
+### URL 参数控制
 
+通过 URL 参数控制页面轮播行为，适用于多台电脑分别展示不同内容的场景。
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+| 参数 | 说明 | 可选值 | 默认值 |
+|------|------|--------|--------|
+| `autoplay` | 是否自动轮播页面 | `true` / `1` 开启，`false` / `0` 关闭 | `true` |
+| `slide` | 固定展示第 N 个页面 | 1 ~ 页面总数（1-based） | 无（不固定） |
+
+> 当设置了 `slide` 参数时，自动轮播会被强制关闭，页面固定展示指定产品。
+
+### 使用示例
+
+```
+# 默认：自动轮播所有页面（大屏展示）
+http://192.168.1.100:5173/
+
+# 关闭轮播，手动导航
+http://192.168.1.100:5173/?autoplay=false
+
+# 固定展示第 3 个产品页（单产品展示机）
+http://192.168.1.100:5173/?slide=3
+
+# 固定展示第 1 个产品页
+http://192.168.1.100:5173/?slide=1
+```
+
+### 典型部署方案
+
+| 机器角色 | URL 配置 | 说明 |
+|----------|----------|------|
+| 大屏总览机 | `/?autoplay=true` 或直接 `/` | 自动轮播所有展品 |
+| 产品展示机 A | `/?slide=1` | 固定展示"测试用例自动生成" |
+| 产品展示机 B | `/?slide=2` | 固定展示"WebRunner" |
+| 产品展示机 C | `/?slide=3` | 固定展示"数据库基准测试" |
+
+### 运行时控制
+
+- 底部工具栏的暂停/播放按钮可随时切换轮播状态
+- 键盘方向键、鼠标滚轮、触屏滑动均可手动切换页面
+- 点击顶部导航或底部圆点可跳转到指定页面

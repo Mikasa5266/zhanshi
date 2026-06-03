@@ -6,10 +6,10 @@ import ImageCarousel from '../ImageCarousel';
 import PlayVideoButton from '../PlayVideoButton';
 
 const PIPELINE_STAGES = [
-  { label: '原始数据', desc: '日志/文本/图像/视频', color: '#dc2626' },
-  { label: '统一分类', desc: '自然语言理解信息', color: '#ea580c' },
-  { label: '质量评估', desc: '多维度数据打分', color: '#d97706' },
-  { label: 'AI就绪', desc: '高质量训练数据集', color: '#059669' },
+  { label: '原始数据', desc: '日志/文本/图像/视频', color: '#ef4444' },
+  { label: '统一分类', desc: '自然语言理解信息', color: '#dc2626' },
+  { label: '质量评估', desc: '多维度数据打分', color: '#b91c1c' },
+  { label: 'AI就绪', desc: '高质量训练数据集', color: '#991b1b' },
 ];
 
 export default function MilitaryDataLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {

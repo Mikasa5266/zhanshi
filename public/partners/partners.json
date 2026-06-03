@@ -29,30 +29,30 @@
       "cnName": "中国电子科技集团公司第二十八研究所",
       "enName": "CETC 28th Institute",
       "category": "military-research",
-      "logo": "/partners/logos/cetc-28th-institute.png",
-      "logoConfidence": "group",
+      "logo": "",
+      "logoConfidence": "text-fallback",
       "features": [
         "中国电科所属科研院所",
         "电子信息系统总体与测评相关客户",
         "使用中国电科集团公开标识"
       ],
       "source": "https://28.cetc.com.cn/",
-      "logoSource": "https://www.cetc.com.cn/"
+      "logoSource": "pending uploaded replacement asset 2026-06-02"
     },
     {
       "id": "casic-706-institute",
       "cnName": "中国航天科工集团第二研究院七〇六所",
       "enName": "CASIC 706 Institute",
       "category": "military-research",
-      "logo": "/partners/logos/casic-706-institute.png",
-      "logoConfidence": "group",
+      "logo": "",
+      "logoConfidence": "text-fallback",
       "features": [
         "航天科工二院所属单位",
         "计算机与软件系统相关客户",
         "使用航天科工集团公开标识"
       ],
       "source": "http://www.casic.com.cn/",
-      "logoSource": "http://www.casic.com.cn/"
+      "logoSource": "pending uploaded replacement asset 2026-06-02"
     },
     {
       "id": "casic-304-institute",
@@ -329,15 +329,15 @@
       "cnName": "阿里",
       "enName": "Alibaba",
       "category": "enterprise",
-      "logo": "/partners/logos/alibaba.svg",
-      "logoConfidence": "official",
+      "logo": "",
+      "logoConfidence": "text-fallback",
       "features": [
         "互联网与云计算企业",
         "企业用户，测试服务支持/智能运维场景",
         "官网公开 SVG logo"
       ],
       "source": "https://www.alibabagroup.com/",
-      "logoSource": "https://www.alibabagroup.com/assets2/img/logo.svg"
+      "logoSource": "pending uploaded replacement asset 2026-06-02"
     },
     {
       "id": "tencent",
@@ -434,15 +434,15 @@
       "cnName": "统信",
       "enName": "UnionTech",
       "category": "enterprise",
-      "logo": "/partners/logos/uniontech.png",
-      "logoConfidence": "official",
+      "logo": "",
+      "logoConfidence": "text-fallback",
       "features": [
         "国产操作系统企业",
         "信创操作系统生态客户",
         "官网公开 logo 图标"
       ],
       "source": "https://www.chinauos.com/",
-      "logoSource": "https://www.chinauos.com/assets/images/logo/logoIcnNew.png"
+      "logoSource": "pending uploaded replacement asset 2026-06-02"
     },
     {
       "id": "inspur",
@@ -464,15 +464,15 @@
       "cnName": "达梦",
       "enName": "Dameng",
       "category": "enterprise",
-      "logo": "/partners/logos/dameng.png",
-      "logoConfidence": "official",
+      "logo": "",
+      "logoConfidence": "text-fallback",
       "features": [
         "国产数据库企业",
         "数据库基准测试与信创生态客户",
         "官网公开 logo"
       ],
       "source": "https://www.dameng.com/",
-      "logoSource": "https://www.dameng.com/static/cn/images/dm_cn/logo.png"
+      "logoSource": "pending uploaded replacement asset 2026-06-02"
     },
     {
       "id": "chinasoft",
