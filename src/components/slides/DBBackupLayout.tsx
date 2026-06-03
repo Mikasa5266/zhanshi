@@ -168,17 +168,6 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
                 </div>
               </div>
             </motion.div>
-
-            {/* Play video button */}
-            {exhibit.videoUrl && (
-              <div className="absolute top-3 right-3">
-                <PlayVideoButton
-                  label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
-                  accentColor={exhibit.accentColor}
-                  onClick={() => onPlayVideo?.()}
-                />
-              </div>
-            )}
           </motion.div>
 
           {/* Right: Feature cards stacked */}
@@ -212,6 +201,17 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
             })}
           </motion.div>
         </div>
+
+        {/* Play video button */}
+        {exhibit.videoUrl && (
+          <div className="flex justify-center mt-3">
+            <PlayVideoButton
+              label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+              accentColor={exhibit.accentColor}
+              onClick={() => onPlayVideo?.()}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

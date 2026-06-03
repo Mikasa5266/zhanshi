@@ -200,6 +200,17 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
               );
             })}
           </motion.div>
+
+          {/* Play video button */}
+          {exhibit.videoUrl && (
+            <div className="mt-3">
+              <PlayVideoButton
+                label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                accentColor={exhibit.accentColor}
+                onClick={() => onPlayVideo?.()}
+              />
+            </div>
+          )}
         </motion.div>
 
         {/* Right: Screenshot Carousel */}
@@ -257,16 +268,6 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
             </div>
           </motion.div>
 
-          {/* Play video button */}
-          {exhibit.videoUrl && (
-            <div className="absolute bottom-14 left-1/2 -translate-x-1/2">
-              <PlayVideoButton
-                label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
-                accentColor={exhibit.accentColor}
-                onClick={() => onPlayVideo?.()}
-              />
-            </div>
-          )}
         </motion.div>
       </div>
     </div>

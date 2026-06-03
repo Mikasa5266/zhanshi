@@ -113,13 +113,13 @@ export default function ImageCarousel({ images, interval = 4000, accentColor = '
   }
 
   return (
-    <div className={`relative overflow-hidden rounded-xl bg-stone-100 ${className}`}>
+    <div className={`relative overflow-hidden rounded-xl bg-stone-900 group ${className}`}>
       <AnimatePresence mode="wait">
         <motion.img
           key={current}
           src={images[current]}
           alt={`截图 ${current + 1}`}
-          className="w-full h-full object-cover cursor-pointer"
+          className="w-full h-full object-contain cursor-pointer"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
@@ -128,18 +128,33 @@ export default function ImageCarousel({ images, interval = 4000, accentColor = '
         />
       </AnimatePresence>
       {images.length > 1 && (
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1">
-          {images.map((_, i) => (
-            <div
-              key={i}
-              className="h-1 rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? '16px' : '6px',
-                backgroundColor: i === current ? accentColor : 'rgba(255,255,255,0.5)',
-              }}
-            />
-          ))}
-        </div>
+        <>
+          <button
+            onClick={(e) => { e.stopPropagation(); setCurrent((current - 1 + images.length) % images.length); }}
+            className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); setCurrent((current + 1) % images.length); }}
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setCurrent(i); }}
+                className="h-1.5 rounded-full transition-all duration-300 cursor-pointer hover:opacity-80"
+                style={{
+                  width: i === current ? '16px' : '6px',
+                  backgroundColor: i === current ? accentColor : 'rgba(255,255,255,0.5)',
+                }}
+              />
+            ))}
+          </div>
+        </>
       )}
       {lightboxOpen && createPortal(
         <ImageLightbox src={images[current]} onClose={() => setLightboxOpen(false)} />,

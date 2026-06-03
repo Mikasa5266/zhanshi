@@ -246,17 +246,18 @@ export default function WaterPlantLayout({ exhibit, onPlayVideo }: SlideLayoutPr
                 ))}
               </div>
             </motion.div>
-
-            {exhibit.videoUrl && (
-              <div className="absolute top-3 right-3">
-                <PlayVideoButton
-                  label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
-                  accentColor={accent}
-                  onClick={() => onPlayVideo?.()}
-                />
-              </div>
-            )}
           </motion.div>
+
+          {/* Play video button */}
+          {exhibit.videoUrl && (
+            <div className="flex justify-center mt-3">
+              <PlayVideoButton
+                label={exhibit.videoLabel || `一分钟看懂 ${exhibit.name}`}
+                accentColor={accent}
+                onClick={() => onPlayVideo?.()}
+              />
+            </div>
+          )}
 
           {/* Bottom: highlight cards row */}
           <motion.div

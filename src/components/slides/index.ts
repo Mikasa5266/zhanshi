@@ -12,12 +12,12 @@ import PartnersLayout from './PartnersLayout';
 
 export const SLIDE_LAYOUTS: React.ComponentType<SlideLayoutProps>[] = [
   CompanyIntroLayout,
-  AITestGenLayout,
   WebRunnerLayout,
   DBBenchmarkLayout,
-  MilitaryDataLayout,
+  AITestGenLayout,
   DBBackupLayout,
-  AgentRunnerLayout,
+  MilitaryDataLayout,
   WaterPlantLayout,
+  AgentRunnerLayout,
   PartnersLayout,
 ];
