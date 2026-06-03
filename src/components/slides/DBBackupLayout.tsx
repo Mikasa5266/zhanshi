@@ -19,13 +19,13 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
       {/* Subtle clock pattern */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border opacity-[0.03]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] rounded-full border opacity-[0.03]"
         style={{ borderColor: exhibit.accentColor }}
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       />
 
-      <div className="relative flex flex-col w-full max-w-6xl h-[78vh] max-h-[600px] px-4">
+      <div className="relative flex flex-col w-full max-w-[90%] xl:max-w-6xl h-[70vh] px-4">
         {/* Header row */}
         <motion.div
           className="flex items-center justify-between mb-2"
@@ -183,7 +183,7 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
 
           {/* Right: Feature cards stacked */}
           <motion.div
-            className="flex flex-col gap-2 w-[200px] shrink-0 justify-center"
+            className="flex flex-col gap-2 w-[18%] min-w-[160px] max-w-[200px] shrink-0 justify-center"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}

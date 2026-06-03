@@ -129,7 +129,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 测试用例自动生成',
-    screenshots: ['/screenshots/auto-testgen-1.png', '/screenshots/auto-testgen-2.png', '/screenshots/auto-testgen-3.png'],
+    screenshots: ['/screenshots/测试用例自动生成_1.png', '/screenshots/测试用例自动生成_2.png', '/screenshots/测试用例自动生成_3.png', '/screenshots/测试用例自动生成_4.png', '/screenshots/测试用例自动生成_5.png', '/screenshots/测试用例自动生成_6.png'],
   },
   {
     id: 'webrunner-guirunner',
@@ -153,7 +153,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 WebRunner',
-    screenshots: ['/screenshots/webrunner-1.png', '/screenshots/webrunner-2.png', '/screenshots/webrunner-3.png'],
+    screenshots: ['/screenshots/Web_1.png', '/screenshots/Web_2.png', '/screenshots/Web_3.png', '/screenshots/GUI_1.png', '/screenshots/GUI_2.png', '/screenshots/GUI_3.png'],
   },
   {
     id: 'db-benchmark',
@@ -177,7 +177,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 数据库基准测试',
-    screenshots: ['/screenshots/db-benchmark-1.png', '/screenshots/db-benchmark-2.png', '/screenshots/db-benchmark-3.png'],
+    screenshots: ['/screenshots/TPC-DS_1.png', '/screenshots/TPC-DS_2.png', '/screenshots/TPC-DS_3.png', '/screenshots/TPC-DS_4.png', '/screenshots/TPC-DS_5.png', '/screenshots/TPC-DS_6.png', '/screenshots/TPC-E_1.png', '/screenshots/TPC-E_2.png', '/screenshots/TPC-E_3.png', '/screenshots/TPC-E_4.png', '/screenshots/TPC-E_5.png'],
   },
   {
     id: 'military-data',
@@ -201,7 +201,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 军用数据集管理',
-    screenshots: ['/screenshots/military-data-1.png', '/screenshots/military-data-2.png', '/screenshots/military-data-3.png'],
+    screenshots: ['/screenshots/南湖数据集标注平台-1.png', '/screenshots/南湖数据集标注平台-2.png', '/screenshots/南湖数据集标注平台-3.png', '/screenshots/南湖数据集标注平台-4.png'],
   },
   {
     id: 'db-backup',
@@ -225,7 +225,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 数据库备份',
-    screenshots: ['/screenshots/db-backup-1.png', '/screenshots/db-backup-2.png', '/screenshots/db-backup-3.png'],
+    screenshots: ['/screenshots/leming-backup-1.png', '/screenshots/leming-backup-2.png', '/screenshots/leming-backup-3.png', '/screenshots/leming-backup-4.png', '/screenshots/leming-backup-5.png'],
   },
   {
     id: 'agentrunner',
@@ -249,7 +249,7 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     ],
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 AgentRunner',
-    screenshots: ['/screenshots/agentrunner-1.png', '/screenshots/agentrunner-2.png', '/screenshots/agentrunner-3.png'],
+    screenshots: ['/screenshots/Agent_1.png', '/screenshots/Agent_2.png', '/screenshots/Agent_3.png'],
   },
   {
     id: 'partners',

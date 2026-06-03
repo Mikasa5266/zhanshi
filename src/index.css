@@ -38,6 +38,6 @@ html, body, #root {
   background-color: #fafafa;
   color: #1c1917;
   font-family: var(--font-sans);
-  font-size: 20px;
+  font-size: clamp(14px, 1.04vw, 20px);
   -webkit-font-smoothing: antialiased;
 }

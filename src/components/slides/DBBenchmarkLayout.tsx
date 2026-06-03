@@ -23,10 +23,10 @@ export default function DBBenchmarkLayout({ exhibit, onPlayVideo }: SlideLayoutP
         <div className="absolute top-0 left-[80%] w-px h-full" style={{ backgroundColor: exhibit.accentColor }} />
       </div>
 
-      <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-4">
+      <div className="relative flex w-full max-w-[90%] xl:max-w-6xl h-[70vh] px-4 gap-4">
         {/* Left: Live Leaderboard */}
         <motion.div
-          className="flex flex-col w-[320px] shrink-0"
+          className="flex flex-col w-[28%] min-w-[220px] max-w-[320px] shrink-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

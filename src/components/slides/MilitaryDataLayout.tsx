@@ -15,10 +15,10 @@ const PIPELINE_STAGES = [
 export default function MilitaryDataLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
-      <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-5">
+      <div className="relative flex w-full max-w-[90%] xl:max-w-6xl h-[70vh] px-4 gap-5">
         {/* Left: Data Refinery Pipeline */}
         <motion.div
-          className="flex flex-col w-[260px] shrink-0"
+          className="flex flex-col w-[24%] min-w-[200px] max-w-[260px] shrink-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}

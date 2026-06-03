@@ -15,10 +15,10 @@ const AGENT_NODES = [
 export default function AgentRunnerLayout({ exhibit, onPlayVideo }: SlideLayoutProps) {
   return (
     <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
-      <div className="relative flex w-full max-w-6xl h-[72vh] max-h-[540px] px-4 gap-4">
+      <div className="relative flex w-full max-w-[90%] xl:max-w-6xl h-[70vh] px-4 gap-4">
         {/* Left: Agent Constellation */}
         <motion.div
-          className="relative w-[340px] shrink-0 flex flex-col"
+          className="relative w-[28%] min-w-[240px] max-w-[340px] shrink-0 flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
