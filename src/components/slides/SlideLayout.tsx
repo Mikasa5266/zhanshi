@@ -7,7 +7,8 @@ import {
   Laptop, Bot, TestTube2, FileText, Eye,
   Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck,
   GitBranch, CheckCircle, FileOutput, Users, MonitorPlay, FileBarChart,
-  Trophy, Wrench, ScrollText, Workflow
+  Trophy, Wrench, ScrollText, Workflow,
+  Waves, AlertTriangle, Activity, Box, Droplets
 } from 'lucide-react';
 import { ExhibitItem } from '../../types';
 
@@ -18,7 +19,8 @@ export const ICON_MAP: Record<string, React.ComponentType<{ className?: string }
   Laptop, Bot, TestTube2, FileText, Eye,
   Microscope, Cloud, BrainCircuit, ClipboardCheck, Server, BadgeCheck,
   GitBranch, CheckCircle, FileOutput, Users, MonitorPlay, FileBarChart,
-  Trophy, Wrench, ScrollText, Workflow
+  Trophy, Wrench, ScrollText, Workflow,
+  Waves, AlertTriangle, Activity, Box, Droplets
 };
 
 export interface SlideLayoutProps {
@@ -35,14 +37,19 @@ export function KeywordCard({ icon, label, sublabel, delay, accentColor }: {
   return (
     <motion.div
       className="bg-white/80 backdrop-blur-md border border-stone-200/90 rounded-xl p-3 md:p-4 shadow-xs flex items-center gap-3 min-w-[140px] max-w-[200px]"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.9, y: 10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 0.2 + delay * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ scale: 1.04, y: -3, boxShadow: '0 8px 25px -5px rgba(0,0,0,0.1)' }}
     >
-      <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-        style={{ backgroundColor: `${accentColor}15`, color: accentColor }}>
+      <motion.div
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+        style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+        animate={{ rotate: [0, 3, -3, 0] }}
+        transition={{ duration: 5, repeat: Infinity, delay: delay * 0.3 }}
+      >
         {IconComponent && <IconComponent className="w-4.5 h-4.5" />}
-      </div>
+      </motion.div>
       <div className="min-w-0">
         <span className="text-sm font-bold text-neutral-900 block truncate">{label}</span>
         <span className="text-[14px] text-stone-500 block truncate">{sublabel}</span>

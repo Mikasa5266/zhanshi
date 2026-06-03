@@ -73,6 +73,16 @@ export const SCENES_DATA: SlideData[] = [
   },
   {
     id: 7,
+    title: "未来水厂 AI Agent",
+    subtitle: "数字孪生 · 智能管控",
+    englishTitle: "SMART WATER PLANT",
+    tagline: "AI多智能体协同的水厂数字孪生系统",
+    description: "基于React Three Fiber的3D数字孪生水厂，多AI Agent协同实现异常检测、智能诊断与自动化处置。",
+    accentColor: "#0891b2",
+    themeColor: "from-cyan-950 via-neutral-950 to-neutral-950"
+  },
+  {
+    id: 8,
     title: "合作伙伴",
     subtitle: "军民企业 · 生态共建",
     englishTitle: "PARTNERS & ECOSYSTEM",
@@ -250,6 +260,30 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     videoUrl: '/videos/webrunner.mp4',
     videoLabel: '一分钟看懂 AgentRunner',
     screenshots: ['/screenshots/Agent_1.png', '/screenshots/Agent_2.png', '/screenshots/Agent_3.png'],
+  },
+  {
+    id: 'water-plant',
+    name: '未来水厂 AI Agent',
+    subtitle: 'AI多智能体协同的水厂数字孪生系统',
+    englishTag: 'SMART WATER PLANT',
+    accentColor: '#0891b2',
+    themeColor: 'from-cyan-950 via-neutral-950 to-neutral-950',
+    keywords: [
+      { icon: 'Waves', label: '数字孪生', sublabel: '3D实时可视化' },
+      { icon: 'Bot', label: '多Agent协同', sublabel: '5智能体联动' },
+      { icon: 'AlertTriangle', label: '异常诊断', sublabel: '9阶段状态机' },
+      { icon: 'Activity', label: '实时监控', sublabel: '粒子数据流' },
+    ],
+    description: '基于React Three Fiber的水厂数字孪生系统，以Supervisor+4专家Agent协同架构实现实时异常检测、智能诊断与自动化处置。支持加药异常、超滤堵塞、反渗透污染、泵组过载4类场景的全自动闭环处理。',
+    highlights: [
+      { icon: 'Box', title: '3D数字孪生', desc: '水厂设备三维建模，实时反映运行状态' },
+      { icon: 'Bot', title: '多智能体协同', desc: 'Supervisor+4专家Agent分工协作' },
+      { icon: 'AlertTriangle', title: '智能异常处置', desc: '9阶段状态机驱动异常检测到恢复全流程' },
+      { icon: 'Sparkles', title: 'AI流式推理', desc: '集成大模型实时分析与决策可视化' },
+    ],
+    videoUrl: '/videos/webrunner.mp4',
+    videoLabel: '一分钟看懂 未来水厂',
+    screenshots: ['/screenshots/未来水厂_1.png', '/screenshots/未来水厂_2.png', '/screenshots/未来水厂_3.png', '/screenshots/未来水厂_4.png', '/screenshots/未来水厂_5.png', '/screenshots/未来水厂_6.png'],
   },
   {
     id: 'partners',

@@ -17,6 +17,14 @@ import {
 
 const AUTOPLAY_INTERVAL = 8000;
 
+const NAV_GROUPS = [
+  { label: '公司', items: [0] },
+  { label: '测试工具', items: [1, 2, 6] },
+  { label: '数据平台', items: [3, 4, 5] },
+  { label: 'AI系统', items: [7] },
+  { label: '生态', items: [8] },
+];
+
 function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
   const autoplay = params.get('autoplay');
@@ -157,25 +165,67 @@ export default function App() {
               </div>
             </div>
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-4 text-[15px] font-semibold text-neutral-800 font-display">
-              {SCENES_DATA.map((scene, idx) => (
-                <button
-                  key={scene.id}
-                  onClick={() => handleManualNav(() => goToSlide(idx))}
-                  className={`relative py-1.5 transition-colors hover:text-red-600 cursor-pointer ${
-                    currentSlide === idx ? 'text-red-600 font-bold' : 'text-neutral-500'
-                  }`}
-                >
-                  {scene.title}
-                  {currentSlide === idx && (
-                    <motion.div
-                      className="absolute bottom-0 inset-x-0 h-0.5 bg-red-600"
-                      layoutId="activeNavIndicator"
-                    />
-                  )}
-                </button>
-              ))}
+            {/* Desktop nav - grouped dropdown */}
+            <nav className="hidden lg:flex items-center gap-1 text-[15px] font-semibold text-neutral-800 font-display">
+              {NAV_GROUPS.map((group) => {
+                const isActive = group.items.includes(currentSlide);
+                const isSingle = group.items.length === 1;
+
+                if (isSingle) {
+                  const idx = group.items[0];
+                  return (
+                    <button
+                      key={group.label}
+                      onClick={() => handleManualNav(() => goToSlide(idx))}
+                      className={`relative py-1.5 px-2.5 transition-colors hover:text-red-600 cursor-pointer ${
+                        currentSlide === idx ? 'text-red-600 font-bold' : 'text-neutral-500'
+                      }`}
+                    >
+                      {SCENES_DATA[idx].title}
+                      {currentSlide === idx && (
+                        <motion.div
+                          className="absolute bottom-0 inset-x-2 h-0.5 bg-red-600"
+                          layoutId="activeNavIndicator"
+                        />
+                      )}
+                    </button>
+                  );
+                }
+
+                return (
+                  <div key={group.label} className="relative group">
+                    <button
+                      className={`relative py-1.5 px-2.5 transition-colors hover:text-red-600 cursor-pointer flex items-center gap-1 ${
+                        isActive ? 'text-red-600 font-bold' : 'text-neutral-500'
+                      }`}
+                    >
+                      {group.label}
+                      <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+                      {isActive && (
+                        <motion.div
+                          className="absolute bottom-0 inset-x-2 h-0.5 bg-red-600"
+                          layoutId="activeNavIndicator"
+                        />
+                      )}
+                    </button>
+                    <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="bg-white/95 backdrop-blur-md border border-stone-200 rounded-xl shadow-lg py-1.5 min-w-[180px]">
+                        {group.items.map((idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => handleManualNav(() => goToSlide(idx))}
+                            className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-red-50 hover:text-red-600 cursor-pointer ${
+                              currentSlide === idx ? 'text-red-600 font-bold bg-red-50/50' : 'text-neutral-600'
+                            }`}
+                          >
+                            {SCENES_DATA[idx].title}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </nav>
 
             <div className="flex items-center gap-3 pointer-events-auto">

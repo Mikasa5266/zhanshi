@@ -329,8 +329,8 @@
       "cnName": "阿里",
       "enName": "Alibaba",
       "category": "enterprise",
-      "logo": "",
-      "logoConfidence": "text-fallback",
+      "logo": "/partners/logos/alibaba.png",
+      "logoConfidence": "official",
       "features": [
         "互联网与云计算企业",
         "企业用户，测试服务支持/智能运维场景",
@@ -434,8 +434,8 @@
       "cnName": "统信",
       "enName": "UnionTech",
       "category": "enterprise",
-      "logo": "",
-      "logoConfidence": "text-fallback",
+      "logo": "/partners/logos/uniontech.png",
+      "logoConfidence": "official",
       "features": [
         "国产操作系统企业",
         "信创操作系统生态客户",
@@ -464,8 +464,8 @@
       "cnName": "达梦",
       "enName": "Dameng",
       "category": "enterprise",
-      "logo": "",
-      "logoConfidence": "text-fallback",
+      "logo": "/partners/logos/dameng.png",
+      "logoConfidence": "official",
       "features": [
         "国产数据库企业",
         "数据库基准测试与信创生态客户",
