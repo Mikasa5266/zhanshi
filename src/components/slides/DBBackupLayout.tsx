@@ -42,7 +42,6 @@ export default function DBBackupLayout({ exhibit, onPlayVideo }: SlideLayoutProp
             </motion.div>
             <div>
               <h2 className="text-lg font-black text-neutral-900 tracking-tight">{exhibit.name}</h2>
-              <span className="text-[13px] font-mono text-stone-400 tracking-[0.12em]">{exhibit.englishTag}</span>
             </div>
           </div>
           <motion.div

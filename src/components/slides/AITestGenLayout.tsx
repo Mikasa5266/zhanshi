@@ -111,7 +111,6 @@ export default function AITestGenLayout({ exhibit, onPlayVideo }: SlideLayoutPro
           <h2 className="text-xl md:text-2xl font-extrabold text-neutral-900 tracking-tight font-display">
             {exhibit.name}
           </h2>
-          <p className="text-[13px] font-mono text-stone-400 tracking-widest mt-0.5">{exhibit.englishTag}</p>
         </motion.div>
 
         {/* Two-column: highlights + screenshot */}

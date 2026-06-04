@@ -109,14 +109,6 @@ export default function CompanyIntroLayout({ exhibit }: SlideLayoutProps) {
       )}
 
       {/* English Tag */}
-      <motion.span
-        className="text-[13px] md:text-[14px] font-mono text-stone-400 tracking-widest"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
-      >
-        {exhibit.englishTag}
-      </motion.span>
     </div>
   );
 }

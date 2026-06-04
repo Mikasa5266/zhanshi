@@ -19,10 +19,6 @@ export default function CompanyProfileLayout({ exhibit }: SlideLayoutProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/80 px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-stone-500 shadow-sm backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: exhibit.accentColor }} />
-          {exhibit.englishTag}
-        </div>
         <h2 className="font-display text-3xl font-black tracking-tight text-neutral-950 md:text-5xl">
           {exhibit.name}
         </h2>

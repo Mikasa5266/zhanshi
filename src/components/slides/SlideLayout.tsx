@@ -58,8 +58,8 @@ export function KeywordCard({ icon, label, sublabel, delay, accentColor }: {
   );
 }
 
-export function SlideFooter({ name, subtitle, englishTag }: {
-  name: string; subtitle: string; englishTag: string;
+export function SlideFooter({ name, subtitle }: {
+  name: string; subtitle: string;
 }) {
   return (
     <motion.div
@@ -74,9 +74,6 @@ export function SlideFooter({ name, subtitle, englishTag }: {
       <p className="text-xs md:text-sm text-stone-600 mt-1 font-sans">
         {subtitle}
       </p>
-      <span className="text-[13px] md:text-[14px] font-mono text-stone-400 tracking-widest mt-1 block">
-        {englishTag}
-      </span>
     </motion.div>
   );
 }

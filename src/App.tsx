@@ -282,9 +282,6 @@ export default function App() {
               <span className="font-bold text-red-600">0{currentSlide + 1}</span>
               <span className="text-neutral-450">/</span>
               <span className="text-neutral-400">0{totalSlides}</span>
-              <span className="hidden sm:inline text-neutral-500 ml-4 font-normal">
-                {SCENES_DATA[currentSlide].englishTitle}
-              </span>
             </div>
 
 
