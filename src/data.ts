@@ -3,9 +3,9 @@ import { SlideData, ExhibitItem } from './types';
 export const SCENES_DATA: SlideData[] = [
   {
     id: 0,
-    title: "迎风聚智",
+    title: "公司简介",
     subtitle: "数智启航 · 自主可控",
-    englishTitle: "WIND GATHER INTELLIGENCE",
+    englishTitle: "COMPANY OVERVIEW",
     tagline: "军民融合 / 国内首创 / 基础软件检验检测先锋",
     description: "武汉迎风聚智科技有限公司创立于2013年，深耕计算机软硬件检验检测核心技术。",
     accentColor: "#c20a0a",
@@ -13,6 +13,26 @@ export const SCENES_DATA: SlideData[] = [
   },
   {
     id: 1,
+    title: "合作伙伴",
+    subtitle: "军民企业 · 生态共建",
+    englishTitle: "PARTNERS & ECOSYSTEM",
+    tagline: "覆盖军工科研、检测认证、头部企业全生态",
+    description: "与30+军工科研院所、国家级检测机构及头部ICT企业建立深度合作。",
+    accentColor: "#9f1239",
+    themeColor: "from-rose-950 via-stone-950 to-neutral-950"
+  },
+  {
+    id: 2,
+    title: "资质荣誉",
+    subtitle: "权威认证 · 实力见证",
+    englishTitle: "HONORS & CERTIFICATIONS",
+    tagline: "国家级资质认证与行业荣誉",
+    description: "多项国家级资质认证及行业荣誉奖项，彰显技术实力与行业认可。",
+    accentColor: "#b91c1c",
+    themeColor: "from-red-950 via-neutral-950 to-neutral-950"
+  },
+  {
+    id: 3,
     title: "WebRunner & GUIRunner",
     subtitle: "性能测试 · 功能验证",
     englishTitle: "PERFORMANCE & FUNCTIONAL TESTING",
@@ -22,7 +42,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-red-950 via-neutral-950 to-neutral-950"
   },
   {
-    id: 2,
+    id: 4,
     title: "数据库基准测试",
     subtitle: "TPC-E · TPC-DS 标准跑分",
     englishTitle: "DATABASE BENCHMARK",
@@ -32,7 +52,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-red-950 via-stone-950 to-neutral-950"
   },
   {
-    id: 3,
+    id: 5,
     title: "测试用例自动生成",
     subtitle: "AI驱动 · 零代码覆盖",
     englishTitle: "AUTO TEST GENERATION",
@@ -42,7 +62,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-rose-950 via-neutral-950 to-neutral-950"
   },
   {
-    id: 4,
+    id: 6,
     title: "轻量化数据库备份",
     subtitle: "增量备份 · 秒级恢复",
     englishTitle: "LIGHTWEIGHT DB BACKUP",
@@ -52,7 +72,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-red-900 via-neutral-950 to-neutral-950"
   },
   {
-    id: 5,
+    id: 7,
     title: "军用数据集管理平台",
     subtitle: "多密级 · 安全管控",
     englishTitle: "MILITARY DATA MANAGEMENT",
@@ -62,7 +82,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-rose-950 via-stone-950 to-neutral-950"
   },
   {
-    id: 6,
+    id: 8,
     title: "未来水厂 AI Agent",
     subtitle: "数字孪生 · 智能管控",
     englishTitle: "SMART WATER PLANT",
@@ -72,7 +92,7 @@ export const SCENES_DATA: SlideData[] = [
     themeColor: "from-cyan-950 via-neutral-950 to-neutral-950"
   },
   {
-    id: 7,
+    id: 9,
     title: "AgentRunner 智体平台",
     subtitle: "AI智体 · 自动化测试",
     englishTitle: "AI AGENT RUNNER",
@@ -81,24 +101,14 @@ export const SCENES_DATA: SlideData[] = [
     accentColor: "#e11d48",
     themeColor: "from-rose-950 via-neutral-950 to-neutral-950"
   },
-  {
-    id: 8,
-    title: "合作伙伴",
-    subtitle: "军民企业 · 生态共建",
-    englishTitle: "PARTNERS & ECOSYSTEM",
-    tagline: "覆盖军工科研、检测认证、头部企业全生态",
-    description: "与30+军工科研院所、国家级检测机构及头部ICT企业建立深度合作。",
-    accentColor: "#9f1239",
-    themeColor: "from-rose-950 via-stone-950 to-neutral-950"
-  }
 ];
 
 export const EXHIBIT_LIST: ExhibitItem[] = [
   {
-    id: 'intro',
-    name: '迎风聚智',
+    id: 'company-profile',
+    name: '公司简介',
     subtitle: '基础软件检验检测技术研发先锋',
-    englishTag: 'LEMING TECH',
+    englishTag: 'COMPANY OVERVIEW',
     accentColor: '#c20a0a',
     themeColor: 'from-red-950 via-neutral-950 to-neutral-950',
     keywords: [
@@ -116,6 +126,34 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
       { icon: 'BrainCircuit', label: '大模型测试工具' },
     ],
     certifications: ['CMA', 'CNAS', 'GJB 9001C', 'ISO27001', 'CMMI3', '军工保密'],
+  },
+  {
+    id: 'partners',
+    name: '合作伙伴',
+    subtitle: '覆盖军工科研、检测认证、头部企业全生态',
+    englishTag: 'PARTNERS & ECOSYSTEM',
+    accentColor: '#9f1239',
+    themeColor: 'from-rose-950 via-stone-950 to-neutral-950',
+    keywords: [
+      { icon: 'Shield', label: '军工科研', sublabel: '8+研究所' },
+      { icon: 'BadgeCheck', label: '检测机构', sublabel: '13+机构' },
+      { icon: 'Building2', label: '企业合作', sublabel: '14+企业' },
+      { icon: 'Target', label: '生态覆盖', sublabel: '35+合作方' },
+    ],
+  },
+  {
+    id: 'honors',
+    name: '资质荣誉',
+    subtitle: '权威认证与行业荣誉',
+    englishTag: 'HONORS & CERTIFICATIONS',
+    accentColor: '#b91c1c',
+    themeColor: 'from-red-950 via-neutral-950 to-neutral-950',
+    keywords: [
+      { icon: 'Award', label: '国家认证', sublabel: '权威资质' },
+      { icon: 'Trophy', label: '行业荣誉', sublabel: '多项大奖' },
+      { icon: 'BadgeCheck', label: '标准制定', sublabel: '参与国标' },
+      { icon: 'Star', label: '技术认可', sublabel: '业界领先' },
+    ],
   },
   {
     id: 'webrunner-guirunner',
@@ -285,18 +323,4 @@ export const EXHIBIT_LIST: ExhibitItem[] = [
     videoLabel: '一分钟看懂 AgentRunner',
     screenshots: ['/screenshots/Agent_1.png', '/screenshots/Agent_2.png', '/screenshots/Agent_3.png'],
   },
-  {
-    id: 'partners',
-    name: '合作伙伴',
-    subtitle: '覆盖军工科研、检测认证、头部企业全生态',
-    englishTag: 'PARTNERS & ECOSYSTEM',
-    accentColor: '#9f1239',
-    themeColor: 'from-rose-950 via-stone-950 to-neutral-950',
-    keywords: [
-      { icon: 'Shield', label: '军工科研', sublabel: '8+研究所' },
-      { icon: 'BadgeCheck', label: '检测机构', sublabel: '13+机构' },
-      { icon: 'Building2', label: '企业合作', sublabel: '14+企业' },
-      { icon: 'Target', label: '生态覆盖', sublabel: '35+合作方' },
-    ],
-  }
 ];

@@ -1,17 +1,20 @@
 import React from 'react';
 import { SlideLayoutProps } from './SlideLayout';
-import CompanyIntroLayout from './CompanyIntroLayout';
-import AITestGenLayout from './AITestGenLayout';
+import CompanyProfileLayout from './CompanyProfileLayout';
+import PartnersLayout from './PartnersLayout';
+import HonorsLayout from './HonorsLayout';
 import WebRunnerLayout from './WebRunnerLayout';
 import DBBenchmarkLayout from './DBBenchmarkLayout';
-import MilitaryDataLayout from './MilitaryDataLayout';
+import AITestGenLayout from './AITestGenLayout';
 import DBBackupLayout from './DBBackupLayout';
-import AgentRunnerLayout from './AgentRunnerLayout';
+import MilitaryDataLayout from './MilitaryDataLayout';
 import WaterPlantLayout from './WaterPlantLayout';
-import PartnersLayout from './PartnersLayout';
+import AgentRunnerLayout from './AgentRunnerLayout';
 
 export const SLIDE_LAYOUTS: React.ComponentType<SlideLayoutProps>[] = [
-  CompanyIntroLayout,
+  CompanyProfileLayout,
+  PartnersLayout,
+  HonorsLayout,
   WebRunnerLayout,
   DBBenchmarkLayout,
   AITestGenLayout,
@@ -19,5 +22,4 @@ export const SLIDE_LAYOUTS: React.ComponentType<SlideLayoutProps>[] = [
   MilitaryDataLayout,
   WaterPlantLayout,
   AgentRunnerLayout,
-  PartnersLayout,
 ];

@@ -18,11 +18,10 @@ import {
 const AUTOPLAY_INTERVAL = 8000;
 
 const NAV_GROUPS = [
-  { label: '首页', items: [0] },
-  { label: '测试工具', items: [1, 2, 3] },
-  { label: '数据平台', items: [4, 5] },
-  { label: 'Agent智能体', items: [6, 7] },
-  { label: '合作伙伴', items: [8] },
+  { label: '迎风聚智', items: [0, 1, 2] },
+  { label: '测试工具', items: [3, 4, 5] },
+  { label: '数据平台', items: [6, 7] },
+  { label: 'Agent智能体', items: [8, 9] },
 ];
 
 function getUrlParams() {
