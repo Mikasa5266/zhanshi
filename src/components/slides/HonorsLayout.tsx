@@ -37,29 +37,21 @@ const HONORS_DATA: HonorItem[] = [
   { id: 'ZSCQ-2020-4', label: '商标·勒名', category: '商标注册', image: '/rongyu/trademark/ZSCQ-2020-4.jpg' },
 ];
 
-const CARD_WIDTH = 380;
+const CARD_WIDTH = 320;
 const CARD_GAP = 24;
 
 function HonorCard({ item, onClick }: { item: HonorItem; onClick: () => void }) {
   return (
     <div
-      className="flex-shrink-0 w-[300px] md:w-[380px] h-[400px] md:h-[480px] rounded-2xl border border-stone-200/80 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden cursor-pointer group transition-all duration-300 hover:shadow-[0_12px_40px_rgba(185,28,28,0.12)] hover:-translate-y-1"
+      className="flex-shrink-0 rounded-2xl border border-stone-200/80 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden cursor-pointer group transition-all duration-300 hover:shadow-[0_12px_40px_rgba(185,28,28,0.12)] hover:-translate-y-1"
       onClick={onClick}
     >
-      <div className="w-full h-full flex flex-col">
-        <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-red-50/40 via-white to-rose-50/30">
-          <img
-            src={item.image}
-            alt={item.label}
-            className="w-full h-full object-contain p-3 transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
-        <div className="px-4 py-3 border-t border-stone-100 bg-white">
-          <p className="text-sm font-bold text-neutral-800 truncate">{item.label}</p>
-          <p className="text-xs text-red-600/70 font-medium mt-0.5">{item.category}</p>
-        </div>
-      </div>
+      <img
+        src={item.image}
+        alt={item.label}
+        className="h-[380px] md:h-[440px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
     </div>
   );
 }
@@ -77,21 +69,14 @@ export default function HonorsLayout({ exhibit }: SlideLayoutProps) {
       />
 
       <motion.header
-        className="flex flex-col items-center text-center"
+        className="flex flex-col items-center text-center pt-6"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/80 px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-stone-500 shadow-sm backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: exhibit.accentColor }} />
-          {exhibit.englishTag}
-        </div>
         <h2 className="font-display text-3xl font-black tracking-tight text-neutral-950 md:text-4xl">
           {exhibit.name}
         </h2>
-        <p className="mt-2 max-w-lg text-sm font-medium text-stone-500">
-          {exhibit.subtitle}
-        </p>
         <div className="mt-3 flex items-center gap-4 text-xs font-medium text-stone-400">
           <span>资质认证 9项</span>
           <span className="w-1 h-1 rounded-full bg-stone-300" />
@@ -116,7 +101,8 @@ export default function HonorsLayout({ exhibit }: SlideLayoutProps) {
 
         <div className="overflow-hidden py-4">
           <motion.div
-            className="flex gap-6"
+            className="flex gap-6 will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
             animate={{ x: [0, -(items.length * (CARD_WIDTH + CARD_GAP))] }}
             transition={{
               x: {
