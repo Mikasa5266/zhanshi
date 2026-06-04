@@ -43,13 +43,13 @@ const CARD_GAP = 24;
 function HonorCard({ item, onClick }: { item: HonorItem; onClick: () => void }) {
   return (
     <div
-      className="flex-shrink-0 rounded-2xl border border-stone-200/80 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden cursor-pointer group transition-all duration-300 hover:shadow-[0_12px_40px_rgba(185,28,28,0.12)] hover:-translate-y-1"
+      className="flex-shrink-0 cursor-pointer group transition-all duration-300 hover:-translate-y-1"
       onClick={onClick}
     >
       <img
         src={item.image}
         alt={item.label}
-        className="h-[380px] md:h-[440px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+        className="h-[380px] md:h-[440px] w-auto block transition-all duration-500 group-hover:scale-105 [filter:drop-shadow(0_4px_12px_rgba(0,0,0,0.2))] group-hover:[filter:drop-shadow(0_8px_20px_rgba(0,0,0,0.3))]"
         loading="lazy"
       />
     </div>
@@ -99,7 +99,7 @@ export default function HonorsLayout({ exhibit }: SlideLayoutProps) {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-white to-transparent" />
 
-        <div className="overflow-hidden py-4">
+        <div className="overflow-hidden">
           <motion.div
             className="flex gap-6 will-change-transform"
             style={{ transform: 'translateZ(0)' }}
